@@ -1,0 +1,1993 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<template id="__bundler_thumbnail" data-bg-color="#08074a">
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+<rect x="24" y="30" width="60" height="42" rx="8" fill="#975df6" opacity="0.55" transform="rotate(-8 54 51)"/>
+<rect x="34" y="38" width="60" height="42" rx="8" fill="#ffffff"/>
+<text x="64" y="64" font-family="sans-serif" font-size="16" font-weight="700" fill="#08074a" text-anchor="middle">W</text>
+</svg>
+</template>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/wolkskool-design-system-3a8c562a-f3ef-4da4-9fc8-4f77e6a0b014/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/wolkskool-design-system-3a8c562a-f3ef-4da4-9fc8-4f77e6a0b014/tokens/colors.css">
+<link rel="stylesheet" href="_ds/wolkskool-design-system-3a8c562a-f3ef-4da4-9fc8-4f77e6a0b014/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/wolkskool-design-system-3a8c562a-f3ef-4da4-9fc8-4f77e6a0b014/tokens/shadows.css">
+<link rel="stylesheet" href="_ds/wolkskool-design-system-3a8c562a-f3ef-4da4-9fc8-4f77e6a0b014/tokens/typography.css">
+<link rel="stylesheet" href="_ds/wolkskool-design-system-3a8c562a-f3ef-4da4-9fc8-4f77e6a0b014/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<script src="_ds/wolkskool-design-system-3a8c562a-f3ef-4da4-9fc8-4f77e6a0b014/_ds_bundle.js"></script>
+<style>
+html,body{margin:0;padding:0;height:100%;overflow:hidden;background:var(--wk-grey-50)}
+*{-webkit-font-smoothing:antialiased}
+a{color:var(--wk-blue-700)}
+a:hover{color:var(--wk-blue-500)}
+[data-scroll]{scrollbar-width:thin}
+@keyframes wk-glow{0%,100%{opacity:.72;transform:scale(1)}50%{opacity:1;transform:scale(1.09)}}
+@keyframes wk-rise{0%{opacity:0;transform:translate3d(0,18px,0)}100%{opacity:1;transform:none}}
+@keyframes wk-pop{0%{opacity:0;transform:scale(.94)}100%{opacity:1;transform:none}}
+@keyframes wk-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes wk-fade{0%{opacity:0}100%{opacity:1}}
+@keyframes wk-sheet{0%{transform:translate3d(0,100%,0)}100%{transform:none}}
+@keyframes wk-spin-slow{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+</style>
+</helmet>
+
+<sc-if value="{{ stripExpanded }}" hint-placeholder-val="{{ true }}">
+<div style="position:fixed;top:0;left:0;right:0;height:40px;z-index:99999;box-sizing:border-box;background:#fff;border-bottom:1px solid rgba(13,13,13,.08);display:flex;align-items:center;padding:0 12px;gap:18px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+<div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+<span style="width:6px;height:6px;border-radius:50%;background:#135BFF;flex-shrink:0"></span>
+<span style="font-size:11px;color:rgba(13,13,13,.45);white-space:nowrap">prototype</span>
+</div>
+<div style="width:1px;height:16px;background:rgba(13,13,13,.08);flex-shrink:0"></div>
+<span style="font-size:10px;color:rgba(13,13,13,.35);flex-shrink:0;white-space:nowrap">// skerm</span>
+<div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+<span style="font-size:11px;color:rgba(13,13,13,.55);white-space:nowrap">screen</span>
+<select value="{{ screenValue }}" onChange="{{ onScreenChange }}" style="max-width:130px;font:12px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:rgba(13,13,13,.55);background:transparent;border:none;border-bottom:1px solid rgba(13,13,13,.15);padding:2px 4px;cursor:pointer;outline:none;text-overflow:ellipsis" style-focus="box-shadow:0 0 0 2px #135BFF">
+<sc-for list="{{ screenOptions }}" as="op" hint-placeholder-count="4">
+<option value="{{ op.value }}">{{ op.label }}</option>
+</sc-for>
+</select>
+</div>
+<div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+<span style="font-size:11px;color:rgba(13,13,13,.55);white-space:nowrap">viewport</span>
+<div style="display:flex;align-items:stretch">
+<sc-for list="{{ vpItems }}" as="it" hint-placeholder-count="3">
+<button onClick="{{ it.onClick }}" style="{{ it.style }}" style-focus="box-shadow:0 0 0 2px #135BFF;outline:none">{{ it.label }}</button>
+</sc-for>
+</div>
+</div>
+<div style="width:1px;height:16px;background:rgba(13,13,13,.08);flex-shrink:0"></div>
+<span style="font-size:10px;color:rgba(13,13,13,.35);flex-shrink:0;white-space:nowrap">// rol</span>
+<div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+<span style="font-size:11px;color:rgba(13,13,13,.55);white-space:nowrap">role</span>
+<div style="display:flex;align-items:stretch">
+<sc-for list="{{ roleItems }}" as="it" hint-placeholder-count="3">
+<button onClick="{{ it.onClick }}" style="{{ it.style }}" style-focus="box-shadow:0 0 0 2px #135BFF;outline:none">{{ it.label }}</button>
+</sc-for>
+</div>
+</div>
+<div style="flex:1"></div>
+<button onClick="{{ toggleStrip }}" style="flex-shrink:0;background:none;border:none;font:12px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:rgba(13,13,13,.45);cursor:pointer;padding:4px;transition:color .12s ease" style-hover="color:rgba(13,13,13,.7)" style-focus="box-shadow:0 0 0 2px #135BFF;outline:none">↗</button>
+</div>
+</sc-if>
+<sc-if value="{{ stripCollapsed }}" hint-placeholder-val="{{ false }}">
+<button onClick="{{ toggleStrip }}" style="position:fixed;top:8px;right:8px;z-index:99999;padding:5px 12px;border-radius:999px;border:1px solid rgba(13,13,13,.08);background:#fff;font:11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:rgba(13,13,13,.45);cursor:pointer;transition:color .12s ease" style-hover="color:rgba(13,13,13,.7)" style-focus="box-shadow:0 0 0 2px #135BFF;outline:none">prototype ↙</button>
+</sc-if>
+
+<div style="padding-top:{{ stripPad }};box-sizing:border-box">
+<div style="box-sizing:border-box;height:calc(100vh - {{ stripPad }});overflow:hidden;padding:{{ rootPad }};background:{{ pageBg }};display:flex;justify-content:center;font-family:var(--font-body)">
+<div onScroll="{{ onStageScroll }}" style="position:relative;box-sizing:border-box;width:{{ stageW }};height:{{ stageH }};max-width:100%;border-radius:{{ stageRadius }};box-shadow:{{ stageRing }};overflow-x:{{ stageClipX }};overflow-y:{{ stageScrollNow }};background:var(--wk-grey-50);display:flex;align-items:stretch">
+
+<sc-if value="{{ isFocus }}">
+<div style="flex:1;min-width:0;height:{{ focusMinH }};min-height:0;box-sizing:border-box;background:var(--wk-grey-100);display:flex;flex-direction:column">
+
+<div style="flex-shrink:0;position:relative;overflow:hidden;box-sizing:border-box;padding:{{ focusBarPad }};background:linear-gradient(140deg,{{ headerGradA }} 0%,{{ headerGradB }} 62%,{{ headerGradC }} 100%);display:flex;align-items:center;gap:{{ focusBarGap }};flex-wrap:{{ focusBarWrap }}">
+<span style="position:absolute;left:-60px;top:-110px;width:300px;height:300px;border-radius:50%;pointer-events:none;background:radial-gradient(closest-side,color-mix(in srgb,{{ blobColorA }} 34%,transparent),transparent);filter:blur(34px);animation:wk-glow 9s ease-in-out infinite"></span>
+<span style="position:absolute;right:8%;bottom:-150px;width:280px;height:280px;border-radius:50%;pointer-events:none;background:radial-gradient(closest-side,color-mix(in srgb,{{ blobColorB }} 30%,transparent),transparent);filter:blur(34px);animation:wk-glow 11s ease-in-out infinite"></span>
+<button onClick="{{ leaveFocus }}" aria-label="Terug" style="position:relative;width:40px;height:40px;flex-shrink:0;padding:0;border:none;border-radius:50%;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0px 1px 2px 0px rgba(16,24,40,0.05)">
+<i class="ph-bold ph-arrow-left" style="font-size:18px;color:var(--wk-grey-900)"></i>
+</button>
+<div style="position:relative;flex:1;min-width:0;display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:{{ focusBarWrap }}">
+<span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:{{ focusTitleFont }};color:#fff">{{ seriesTitle }}</span>
+<sc-if value="{{ showProgressTags }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap">
+<span style="display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:var(--radius-full);background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);font:500 13px/18px var(--font-body);color:#fff">
+<i class="ph-bold ph-arrows-clockwise" style="font-size:14px"></i>Hersien: {{ reviewN }}
+</span>
+<span style="display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:var(--radius-full);background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);font:500 13px/18px var(--font-body);color:#fff">
+<i class="ph-bold ph-check-circle" style="font-size:14px"></i>Verstaan: {{ knownN }}
+</span>
+</div>
+</sc-if>
+<sc-if value="{{ isOwner }}">
+<span style="position:relative;flex-shrink:0">
+<button onClick="{{ toggleActions }}" aria-label="Aksies" title="Aksies" style="width:36px;height:36px;flex-shrink:0;padding:0;border:none;border-radius:50%;background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.26);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:rgba(255,255,255,.20)">
+<i class="ph-bold ph-dots-three-vertical" style="font-size:18px;color:#fff"></i>
+</button>
+<sc-if value="{{ actionsOpen }}">
+<div style="position:absolute;right:0;top:calc(100% + 6px);z-index:30;box-sizing:border-box;width:212px;padding:6px;border-radius:10px;background:#fff;box-shadow:0px 12px 16px -4px rgba(16,24,40,0.08),inset 0 0 0 1px var(--wk-grey-200);display:flex;flex-direction:column;gap:2px">
+<sc-for list="{{ heroActions }}" as="ac" hint-placeholder-count="2">
+<button onClick="{{ ac.go }}" style="box-sizing:border-box;width:100%;min-height:36px;padding:6px 10px;border:none;border-radius:7px;cursor:pointer;background:none;display:flex;align-items:center;gap:10px;font:500 15px/22px var(--font-body);color:{{ ac.fg }};text-align:left" style-hover="background:var(--wk-grey-50)">
+<i class="{{ ac.icon }}" style="font-size:17px;flex-shrink:0"></i>
+<span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ ac.label }}</span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</span>
+</sc-if>
+</div>
+<div style="display:flex;align-items:center;gap:12px;width:100%">
+<span style="flex:1;min-width:0;height:8px;border-radius:4px;background:rgba(255,255,255,.18);overflow:hidden;display:block">
+<span style="display:block;height:8px;width:{{ focusPct }};border-radius:4px;background:var(--wk-info-500);transition:width .3s ease"></span>
+</span>
+<span style="flex-shrink:0;white-space:nowrap;font:500 14px/20px var(--font-body);color:rgba(255,255,255,.82)">{{ focusCount }}</span>
+</div>
+</div>
+</div>
+
+<div onTouchStart="{{ onCardTouchStart }}" onTouchEnd="{{ onCardTouchEnd }}" onPointerDown="{{ onCardPointerDown }}" onPointerUp="{{ onCardPointerUp }}" style="flex:1;min-height:0;overflow:hidden;box-sizing:border-box;padding:{{ focusStagePad }};display:flex;align-items:center;justify-content:center;gap:{{ focusStageGap }};touch-action:pan-y;cursor:grab">
+<sc-if value="{{ showPeek }}">
+<button onClick="{{ prevCard }}" aria-label="Vorige kaart" style="position:relative;flex-shrink:0;width:84px;align-self:center;height:88%;border:none;background:transparent;padding:0;cursor:pointer;opacity:.85;transition:opacity .16s ease" style-hover="opacity:1">
+<span style="position:absolute;top:14%;bottom:0;left:20%;right:0;border-radius:18px;background:#fff;box-shadow:0px 4px 10px -2px rgba(16,24,40,0.06);opacity:.4;transform:rotate(-6deg)"></span>
+<span style="position:absolute;top:7%;bottom:0;left:12%;right:0;border-radius:19px;background:#fff;box-shadow:0px 5px 12px -2px rgba(16,24,40,0.07);opacity:.65;transform:rotate(-3deg)"></span>
+<span style="position:absolute;inset:0;border-radius:20px;background:#fff;box-shadow:0px 8px 16px -4px rgba(16,24,40,0.08),0px 4px 8px -2px rgba(16,24,40,0.04);display:flex;align-items:center;justify-content:center">
+<i class="ph-bold ph-caret-left" style="font-size:18px;color:var(--wk-grey-400)"></i>
+</span>
+</button>
+</sc-if>
+<div style="flex:1;min-width:0;width:100%;height:100%;align-self:stretch;perspective:1800px">
+<button onClick="{{ flipCard }}" style="position:relative;display:block;width:100%;height:100%;border:none;cursor:pointer;padding:0;background:transparent;font:inherit;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,.15,.2,1);transform:{{ flipTransform }}">
+<div style="position:absolute;inset:0;backface-visibility:hidden;border-radius:20px;background:#fff;box-shadow:0px 8px 16px -4px rgba(16,24,40,0.05),0px 4px 8px -2px rgba(16,24,40,0.03);overflow:hidden">
+<sc-if value="{{ focusFrontIsText }}" hint-placeholder-val="{{ true }}">
+<div style="box-sizing:border-box;width:100%;height:100%;padding:{{ focusCardPad }};display:flex;align-items:center;justify-content:center">
+<div data-scroll="" style="width:100%;height:100%;overflow-y:auto;display:flex;align-items:center;justify-content:center">
+<span style="max-width:820px;font:{{ cardFont }};color:var(--wk-grey-950);text-align:center;text-wrap:pretty">{{ frontText }}</span>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ focusFrontIsImage }}">
+<div style="position:relative;width:100%;height:100%">
+<img src="assets/flits-front.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+<sc-if value="{{ showFrontImgDesc }}">
+<div style="position:absolute;left:0;right:0;bottom:0;padding:20px;background:linear-gradient(0deg,rgba(8,7,20,.62),transparent)">
+<span style="font:600 17px/24px var(--font-body);color:#fff;text-wrap:pretty">{{ frontImgDescText }}</span>
+</div>
+</sc-if>
+</div>
+</sc-if>
+</div>
+<div style="position:absolute;inset:0;backface-visibility:hidden;transform:rotateY(180deg);border-radius:20px;background:{{ backBg }};box-shadow:0px 8px 16px -4px rgba(16,24,40,0.05),0px 4px 8px -2px rgba(16,24,40,0.03);overflow:hidden" data-comment-anchor="1936e18beeb-div">
+<sc-if value="{{ focusBackIsText }}" hint-placeholder-val="{{ true }}">
+<div style="box-sizing:border-box;width:100%;height:100%;padding:{{ focusCardPad }};display:flex;flex-direction:column;align-items:center;gap:14px">
+<span style="flex-shrink:0;width:100%;font:{{ recapFont }};color:{{ recapColor }};text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ frontText }}</span>
+<div data-scroll="" style="flex:1;min-height:0;width:100%;overflow-y:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px">
+<span style="max-width:820px;font:{{ backFont }};color:#fff;text-align:center;text-wrap:pretty">{{ backText }}</span>
+<sc-if value="{{ showBackList }}">
+<ul style="align-self:center;max-width:820px;width:100%;box-sizing:border-box;margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;text-align:left;font:{{ backFont }};color:#fff">
+<sc-for list="{{ backListItems }}" as="li" hint-placeholder-count="3">
+<li>{{ li.text }}</li>
+</sc-for>
+</ul>
+</sc-if>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ focusBackIsImage }}">
+<div style="position:relative;width:100%;height:100%">
+<img src="assets/flits-back.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+<div style="position:absolute;left:0;right:0;top:0;padding:20px;background:linear-gradient(180deg,rgba(8,7,20,.55),transparent)">
+<span style="font:{{ recapFont }};color:rgba(255,255,255,.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block">{{ frontText }}</span>
+</div>
+<sc-if value="{{ showBackImgDesc }}">
+<div style="position:absolute;left:0;right:0;bottom:0;padding:20px;background:linear-gradient(0deg,rgba(8,7,20,.62),transparent)">
+<span style="font:500 14px/20px var(--font-body);color:#fff;text-wrap:pretty">{{ backImgDescText }}</span>
+</div>
+</sc-if>
+</div>
+</sc-if>
+</div>
+</button>
+</div>
+<sc-if value="{{ showPeek }}">
+<button onClick="{{ nextCard }}" aria-label="Volgende kaart" style="position:relative;flex-shrink:0;width:84px;align-self:center;height:88%;border:none;background:transparent;padding:0;cursor:pointer;opacity:.85;transition:opacity .16s ease" style-hover="opacity:1">
+<span style="position:absolute;top:14%;bottom:0;right:20%;left:0;border-radius:18px;background:#fff;box-shadow:0px 4px 10px -2px rgba(16,24,40,0.06);opacity:.4;transform:rotate(6deg)"></span>
+<span style="position:absolute;top:7%;bottom:0;right:12%;left:0;border-radius:19px;background:#fff;box-shadow:0px 5px 12px -2px rgba(16,24,40,0.07);opacity:.65;transform:rotate(3deg)"></span>
+<span style="position:absolute;inset:0;border-radius:20px;background:#fff;box-shadow:0px 8px 16px -4px rgba(16,24,40,0.08),0px 4px 8px -2px rgba(16,24,40,0.04);display:flex;align-items:center;justify-content:center">
+<i class="ph-bold ph-caret-right" style="font-size:18px;color:var(--wk-grey-400)"></i>
+</span>
+</button>
+</sc-if>
+</div>
+
+<div style="flex-shrink:0;box-sizing:border-box;width:100%;padding:{{ focusFootPad }};background:var(--wk-grey-50);box-shadow:0 -1px 0 0 var(--wk-grey-200);display:flex;flex-direction:{{ focusFootDir }};flex-wrap:wrap;align-items:center;justify-content:space-between;gap:{{ focusFootGap }}">
+<sc-if value="{{ showNavButtons }}">
+<button onClick="{{ prevCard }}" style="order:{{ prevOrder }};flex-shrink:0;width:{{ navBtnW }};min-height:36px;padding:0 14px;border:none;border-radius:var(--radius-full);cursor:pointer;background:#fff;box-shadow:inset 0 0 0 1px var(--wk-grey-300);display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap;font:600 13px/18px var(--font-body);color:var(--wk-grey-700)" style-hover="background:var(--wk-grey-50)">
+<i class="ph-bold ph-arrow-left" style="font-size:14px"></i>Vorige
+</button>
+</sc-if>
+<div style="order:{{ markOrder }};display:flex;align-items:center;flex:0 1 260px;min-width:180px;border-radius:var(--radius-full);box-shadow:inset 0 0 0 1px var(--wk-grey-200);overflow:hidden">
+<button onClick="{{ markReview }}" style="flex:1;min-width:0;min-height:36px;padding:0 12px;border:none;border-radius:var(--radius-full) 0 0 var(--radius-full);cursor:pointer;background:{{ reviewBg }};box-shadow:{{ reviewStroke }};display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap;font:600 13px/18px var(--font-body);color:{{ reviewFg }};transition:background .16s ease,box-shadow .16s ease">
+<i class="{{ reviewIcon }}" style="font-size:14px"></i>Hersien weer
+</button>
+<button onClick="{{ markKnown }}" style="flex:1;min-width:0;min-height:36px;padding:0 12px;border:none;border-radius:0 var(--radius-full) var(--radius-full) 0;cursor:pointer;background:{{ knownBg }};box-shadow:{{ knownStroke }};display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap;font:600 13px/18px var(--font-body);color:{{ knownFg }};transition:background .16s ease,box-shadow .16s ease">
+<i class="{{ knownIcon }}" style="font-size:14px"></i>Ek verstaan
+</button>
+</div>
+<sc-if value="{{ showNavButtons }}">
+<button onClick="{{ finishOrNext }}" style="order:{{ nextOrder }};flex-shrink:0;width:{{ navBtnW }};min-height:36px;padding:0 14px;border:none;border-radius:var(--radius-full);cursor:pointer;background:var(--wk-info-700);display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap;font:600 13px/18px var(--font-body);color:#fff" style-hover="background:var(--wk-blue-700)">
+{{ nextLabel }}<i class="{{ nextIcon }}" style="font-size:14px"></i>
+</button>
+</sc-if>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ showSidebar }}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{ showRailBackdrop }}">
+<div onClick="{{ closeSb }}" style="position:absolute;inset:0;z-index:34;background:rgba(52,64,84,.60)"></div>
+</sc-if>
+<aside style="position:sticky;top:0;flex-shrink:0;width:{{ asideFlowW }};height:{{ asideH }};box-sizing:border-box;overflow:visible">
+<div style="position:absolute;top:0;left:0;z-index:{{ sbZ }};width:{{ sbW }};height:100%;box-sizing:border-box;background:linear-gradient(180deg,var(--wk-blue-800) 0%,var(--wk-blue-900) 100%);box-shadow:0px 20px 24px -4px rgba(16,24,40,0.08),0px 8px 8px -4px rgba(16,24,40,0.03);display:flex;flex-direction:column;justify-content:space-between;overflow-x:hidden;overflow-y:auto;transition:width .18s ease">
+<div style="display:flex;flex-direction:column;gap:24px;padding:32px 0 0;flex-shrink:0">
+<div style="box-sizing:border-box;padding:{{ headPad }};display:flex;flex-direction:{{ headDir }};align-items:center;justify-content:{{ headJustify }};gap:{{ headGap }}">
+<sc-if value="{{ isOpen }}" hint-placeholder-val="{{ true }}"><img src="assets/wolkskool-logo-white.png" alt="Wolkskool" style="height:32px;width:auto;flex-shrink:0"></sc-if>
+<sc-if value="{{ isClosed }}"><img src="assets/wolkskool-mark-white.png" alt="Wolkskool" style="height:22px;width:auto;flex-shrink:0"></sc-if>
+<button onClick="{{ toggleSb }}" title="{{ sbToggleLabel }}" aria-label="{{ sbToggleLabel }}" style="width:36px;height:36px;flex-shrink:0;padding:0;border:none;border-radius:8px;background:{{ sbToggleBg }};box-shadow:{{ sbToggleRing }};cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .16s ease" style-hover="background:rgba(255,255,255,.07)">
+<i class="{{ sbToggleIcon }}" style="font-size:20px;color:rgba(255,255,255,.62)"></i>
+</button>
+</div>
+<nav style="box-sizing:border-box;padding:0 16px;display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{ navItems }}" as="it" hint-placeholder-count="8">
+<div style="display:flex;flex-direction:column;gap:4px">
+<button onClick="{{ it.go }}" title="{{ it.label }}" style="box-sizing:border-box;height:40px;width:100%;border:none;border-radius:6px;cursor:pointer;padding:8px 12px;display:flex;align-items:center;gap:12px;justify-content:{{ it.justify }};background:{{ it.bg }};font:inherit;transition:background .16s ease,transform .16s ease" style-hover="background:rgba(255,255,255,.06);transform:translateX(2px)">
+<i class="{{ it.icon }}" style="font-size:22px;flex-shrink:0;color:{{ it.fg }}"></i>
+<sc-if value="{{ it.showLabel }}" hint-placeholder-val="{{ true }}">
+<span style="flex:1;min-width:0;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:600 16px/24px var(--font-body);color:{{ it.fg }}">{{ it.label }}</span>
+</sc-if>
+<sc-if value="{{ it.showBadge }}">
+<span style="flex-shrink:0;padding:1px 9px;border-radius:var(--radius-full);background:rgba(255,255,255,.16);font:600 12px/18px var(--font-body);color:#fff">{{ it.badge }}</span>
+</sc-if>
+<sc-if value="{{ it.showCaret }}">
+<i class="{{ it.caretIcon }}" style="font-size:16px;flex-shrink:0;opacity:.7;color:{{ it.fg }}"></i>
+</sc-if>
+</button>
+<sc-if value="{{ it.showSubs }}">
+<div style="display:flex;flex-direction:column;gap:2px;padding-left:34px">
+<sc-for list="{{ it.subs }}" as="sb" hint-placeholder-count="2">
+<button onClick="{{ sb.go }}" style="box-sizing:border-box;height:34px;width:100%;border:none;border-radius:6px;cursor:pointer;padding:6px 12px;display:flex;align-items:center;gap:10px;background:{{ sb.bg }};font:inherit;text-align:left;transition:background .16s ease,transform .16s ease" style-hover="background:rgba(255,255,255,.06);transform:translateX(2px)">
+<span style="width:5px;height:5px;flex-shrink:0;border-radius:50%;background:{{ sb.dot }}"></span>
+<span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:500 15px/22px var(--font-body);color:{{ sb.fg }}">{{ sb.label }}</span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</nav>
+</div>
+<div style="box-sizing:border-box;padding:0 16px 32px;display:flex;flex-direction:column;gap:12px;flex-shrink:0">
+<nav style="display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{ footItems }}" as="it" hint-placeholder-count="4">
+<button title="{{ it.label }}" style="box-sizing:border-box;height:40px;width:100%;border:none;border-radius:6px;cursor:pointer;padding:8px 12px;display:flex;align-items:center;gap:12px;justify-content:{{ it.justify }};background:none;font:inherit;transition:background .16s ease,transform .16s ease" style-hover="background:rgba(255,255,255,.06);transform:translateX(2px)">
+<i class="{{ it.icon }}" style="font-size:22px;flex-shrink:0;color:rgba(255,255,255,.42)"></i>
+<sc-if value="{{ it.showLabel }}" hint-placeholder-val="{{ true }}">
+<span style="flex:1;min-width:0;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:600 16px/24px var(--font-body);color:rgba(255,255,255,.42)">{{ it.label }}</span>
+</sc-if>
+<sc-if value="{{ it.showBadge }}">
+<span style="flex-shrink:0;padding:1px 9px;border-radius:var(--radius-full);background:rgba(255,255,255,.16);font:600 12px/18px var(--font-body);color:#fff">{{ it.badge }}</span>
+</sc-if>
+</button>
+</sc-for>
+</nav>
+<div style="box-sizing:border-box;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:{{ avatarRowJustify }};gap:12px">
+<span style="position:relative;width:40px;height:40px;flex-shrink:0;border-radius:50%;overflow:hidden;background:var(--wk-blue-600);display:flex;align-items:center;justify-content:center">
+<x-import component-from-global-scope="WolkskoolDesignSystem_3a8c56.Avatar" size="md" initials="OR" hint-size="40px,40px"></x-import>
+</span>
+<sc-if value="{{ isOpen }}" hint-placeholder-val="{{ true }}">
+<div style="flex:1;min-width:0;display:flex;flex-direction:column">
+<span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:600 14px/20px var(--font-body);color:#fff">Olivia Rhye</span>
+<span style="white-space:nowrap;font:400 12px/18px var(--font-body);color:rgba(255,255,255,.55)">Onderwyser</span>
+</div>
+<span style="flex-shrink:0;display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:var(--radius-full);background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.20);font:600 12px/18px var(--font-body);color:#fff">
+<i class="ph ph-cloud" style="font-size:13px"></i>{{ points }}
+</span>
+</sc-if>
+</div>
+</div>
+</div></aside>
+</sc-if>
+
+<sc-if value="{{ showMobileMenu }}">
+<div style="flex:1;min-width:0;height:{{ stageH }};box-sizing:border-box;background:linear-gradient(180deg,var(--wk-blue-800) 0%,var(--wk-blue-900) 100%);display:flex;flex-direction:column">
+<div style="position:relative;flex-shrink:0;box-sizing:border-box;padding:calc(28px + env(safe-area-inset-top)) 20px 20px;display:flex;align-items:center;justify-content:flex-start;gap:12px">
+<img src="assets/wolkskool-logo-white.png" alt="Wolkskool" style="height:30px;width:auto;flex-shrink:0">
+<button onClick="{{ closeMenu }}" aria-label="Maak toe" style="position:absolute;right:20px;top:50%;transform:translateY(-50%);width:40px;height:40px;flex-shrink:0;padding:0;border:none;border-radius:50%;background:rgba(255,255,255,.10);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);cursor:pointer;display:flex;align-items:center;justify-content:center">
+<i class="ph-bold ph-x" style="font-size:18px;color:#fff"></i>
+</button>
+</div>
+<div style="flex-shrink:0;height:6px;display:flex" title="Graad 1–12">
+<span style="flex:1;background:var(--wk-purple-600)"></span>
+<span style="flex:1;background:var(--info-600)"></span>
+<span style="flex:1;background:var(--success-600)"></span>
+<span style="flex:1;background:var(--warning-600)"></span>
+<span style="flex:1;background:var(--error-600)"></span>
+</div>
+<div data-scroll="" style="flex:1;min-height:0;overflow-y:auto;box-sizing:border-box;padding:16px 16px 24px;display:flex;flex-direction:column;gap:4px">
+<sc-for list="{{ navItems }}" as="it" hint-placeholder-count="8">
+<div style="display:flex;flex-direction:column;gap:2px">
+<button onClick="{{ it.go }}" style="position:relative;box-sizing:border-box;min-height:50px;width:100%;border:none;border-radius:10px;cursor:pointer;padding:10px 14px;display:flex;align-items:center;gap:14px;background:{{ it.bg }};font:inherit" style-hover="background:rgba(255,255,255,.08)">
+<i class="{{ it.icon }}" style="font-size:21px;flex-shrink:0;color:{{ it.fg }}"></i>
+<span style="flex:1;min-width:0;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:{{ it.fontM }};color:{{ it.fg }}">{{ it.label }}</span>
+<sc-if value="{{ it.showBadgeM }}">
+<span style="flex-shrink:0;padding:1px 9px;border-radius:var(--radius-full);background:rgba(255,255,255,.16);font:600 12px/18px var(--font-body);color:#fff">{{ it.badge }}</span>
+</sc-if>
+<sc-if value="{{ it.hasSubs }}">
+<i class="{{ it.caretIconM }}" style="font-size:15px;flex-shrink:0;color:rgba(255,255,255,.42)"></i>
+</sc-if>
+</button>
+<sc-if value="{{ it.showSubsM }}">
+<div style="display:flex;flex-direction:column;gap:2px;margin:2px 0 6px;padding-left:14px;box-shadow:inset 1px 0 0 rgba(255,255,255,.12)">
+<sc-for list="{{ it.subs }}" as="sb" hint-placeholder-count="2">
+<button onClick="{{ sb.go }}" style="box-sizing:border-box;min-height:44px;width:100%;border:none;border-radius:8px;cursor:pointer;padding:8px 14px;display:flex;align-items:center;gap:10px;background:{{ sb.bg }};font:inherit;text-align:left" style-hover="background:rgba(255,255,255,.06)">
+<span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:500 15px/22px var(--font-body);color:{{ sb.fg }}">{{ sb.label }}</span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</sc-for>
+<div style="height:1px;margin:12px 12px 8px;background:rgba(255,255,255,.12)"></div>
+<sc-for list="{{ footItems }}" as="it" hint-placeholder-count="4">
+<button style="box-sizing:border-box;min-height:48px;width:100%;border:none;border-radius:10px;cursor:pointer;padding:10px 14px;display:flex;align-items:center;gap:14px;background:none;font:inherit" style-hover="background:rgba(255,255,255,.06)">
+<i class="{{ it.icon }}" style="font-size:21px;flex-shrink:0;color:rgba(255,255,255,.42)"></i>
+<span style="flex:1;min-width:0;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:500 16px/24px var(--font-body);color:rgba(255,255,255,.56)">{{ it.label }}</span>
+<sc-if value="{{ it.showBadgeM }}">
+<span style="flex-shrink:0;padding:1px 9px;border-radius:var(--radius-full);background:rgba(255,255,255,.16);font:600 12px/18px var(--font-body);color:#fff">{{ it.badge }}</span>
+</sc-if>
+</button>
+</sc-for>
+</div>
+<div style="flex-shrink:0;box-sizing:border-box;padding:14px 20px calc(28px + env(safe-area-inset-bottom));box-shadow:inset 0 1px 0 rgba(255,255,255,.12);display:flex;align-items:center;gap:12px">
+<span style="width:40px;height:40px;flex-shrink:0;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font:600 14px/20px var(--font-body);color:#fff">{{ drawerInitials }}</span>
+<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:1px">
+<span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:600 15px/22px var(--font-body);color:#fff">{{ drawerUser }}</span>
+<span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:400 13px/19px var(--font-body);color:rgba(255,255,255,.48)">{{ drawerRole }}</span>
+</span>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ showPage }}" hint-placeholder-val="{{ true }}">
+<main style="flex:1;min-width:0;min-height:{{ mainMinH }};box-sizing:border-box;overflow-y:auto;display:flex;flex-direction:column">
+
+<sc-if value="{{ isMobileVp }}">
+<div style="position:sticky;top:0;z-index:30;overflow:hidden;flex-shrink:0;box-sizing:border-box;padding:calc(20px + env(safe-area-inset-top)) 20px 14px;background:linear-gradient(140deg,var(--wk-blue-700) 0%,var(--wk-blue-800) 62%,var(--wk-blue-900) 100%);display:flex;align-items:center;gap:12px">
+<button onClick="{{ openMenu }}" aria-label="Kieslys" style="width:40px;height:40px;flex-shrink:0;padding:0;border:none;border-radius:50%;background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);cursor:pointer;display:flex;align-items:center;justify-content:center">
+<i class="ph-bold ph-list" style="font-size:20px;color:#fff"></i>
+</button>
+<span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:600 19px/26px var(--font-display);letter-spacing:-0.01em;color:#fff">Flitsgids</span>
+<div style="position:absolute;left:0;right:0;bottom:0;height:6px;display:flex;pointer-events:none" title="Graad 1–12">
+<span style="flex:1;background:var(--wk-purple-600)"></span>
+<span style="flex:1;background:var(--info-600)"></span>
+<span style="flex:1;background:var(--success-600)"></span>
+<span style="flex:1;background:var(--warning-600)"></span>
+<span style="flex:1;background:var(--error-600)"></span>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isOverview }}" hint-placeholder-val="{{ true }}">
+<div style="position:sticky;top:{{ pgHeadTop }};z-index:25;flex-shrink:0;box-sizing:border-box;padding:{{ pgHeadPad }};background:#fff;box-shadow:0 1px 0 0 var(--wk-grey-200);display:flex;flex-direction:{{ pgHeadDir }};justify-content:space-between;align-items:{{ pgHeadAlign }};gap:{{ pgHeadGap }}">
+<sc-if value="{{ showPgTitle }}">
+<div style="flex:1;min-width:{{ pgTitleMin }};display:flex;flex-direction:column;gap:4px">
+<span style="font:{{ pgTitleFont }};color:var(--wk-grey-950)">Flitsgids</span>
+</div>
+</sc-if>
+<div style="flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:flex-end;gap:12px;width:{{ pgActW }}">
+<div style="flex:1 1 auto;min-width:0;display:flex;align-items:center;gap:8px;box-sizing:border-box;max-width:{{ searchW }};height:44px;padding:0 14px;border-radius:var(--radius-full);background:#fff;box-shadow:inset 0 0 0 1px var(--wk-grey-300)">
+<i class="ph ph-magnifying-glass" style="font-size:18px;flex-shrink:0;color:var(--wk-grey-400)"></i>
+<input value="{{ query }}" onChange="{{ onQuery }}" placeholder="Soek 'n reeks..." style="flex:1;min-width:0;border:none;background:none;outline:none;font:400 15px/22px var(--font-body);color:var(--wk-grey-900)">
+<sc-if value="{{ hasQuery }}">
+<button onClick="{{ clearQuery }}" aria-label="Wis soektog" style="width:24px;height:24px;flex-shrink:0;padding:0;border:none;border-radius:50%;background:var(--wk-grey-200);cursor:pointer;display:flex;align-items:center;justify-content:center">
+<i class="ph-bold ph-x" style="font-size:12px;color:var(--wk-grey-600)"></i>
+</button>
+</sc-if>
+</div>
+<sc-if value="{{ showCreateFull }}">
+<button onClick="{{ createGo }}" style="flex-shrink:0;height:44px;padding:0 18px;border:none;border-radius:var(--radius-full);cursor:pointer;opacity:{{ createOpacity }};background:var(--wk-blue-600);display:flex;align-items:center;gap:8px;white-space:nowrap;font:600 15px/22px var(--font-body);color:#fff" style-hover="background:var(--wk-blue-700)">
+<i class="ph-bold ph-plus" style="font-size:16px"></i>Skep reeks
+</button>
+</sc-if>
+<sc-if value="{{ showCreateIcon }}">
+<button onClick="{{ createGo }}" aria-label="Skep reeks" title="Skep reeks" style="width:44px;height:44px;flex-shrink:0;padding:0;border:none;border-radius:50%;cursor:pointer;opacity:{{ createOpacity }};background:var(--wk-blue-600);display:flex;align-items:center;justify-content:center" style-hover="background:var(--wk-blue-700)">
+<i class="ph-bold ph-plus" style="font-size:18px;color:#fff"></i>
+</button>
+</sc-if>
+</div>
+</div>
+
+<div style="flex:1 1 auto;min-height:0;display:flex;flex-direction:column">
+<div style="flex:1 1 auto;min-height:0;display:flex;flex-direction:{{ browseDir }};align-items:stretch">
+
+<sc-if value="{{ showRail }}" hint-placeholder-val="{{ true }}">
+<div data-scroll="" style="position:sticky;top:0;flex-shrink:0;box-sizing:border-box;width:296px;max-height:{{ asideH }};overflow-y:auto;align-self:flex-start;padding:24px;background:var(--wk-grey-50);box-shadow:inset -1px 0 0 0 var(--wk-grey-300);display:flex;flex-direction:column;gap:24px">
+<sc-if value="{{ showAudienceToggle }}">
+<div style="box-sizing:border-box;display:flex;align-items:center;border-radius:var(--radius-full);box-shadow:inset 0 0 0 1px var(--wk-grey-200);overflow:hidden;background:#fff">
+<button onClick="{{ setAudienceL }}" style="flex:1;min-width:0;min-height:36px;padding:0 12px;border:none;cursor:pointer;background:{{ audienceLBg }};font:600 13px/18px var(--font-body);color:{{ audienceLFg }}">Leerders</button>
+<button onClick="{{ setAudienceT }}" style="flex:1;min-width:0;min-height:36px;padding:0 12px;border:none;cursor:pointer;background:{{ audienceTBg }};font:600 13px/18px var(--font-body);color:{{ audienceTFg }}">Onderwysers</button>
+</div>
+</sc-if>
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="font:600 12px/18px var(--font-body);letter-spacing:.04em;color:var(--wk-grey-500)">STATUS</span>
+<div style="position:relative">
+<button onClick="{{ openStatusDd }}" style="box-sizing:border-box;width:100%;height:40px;padding:0 14px;border:none;border-radius:8px;cursor:pointer;background:#fff;box-shadow:inset 0 0 0 1px var(--wk-grey-300);display:flex;align-items:center;gap:8px;font:500 15px/22px var(--font-body);color:var(--wk-grey-900)">
+<span style="flex:1;min-width:0;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ statusLabel }}</span>
+<i class="{{ statusCaret }}" style="font-size:14px;flex-shrink:0;color:var(--wk-grey-500)"></i>
+</button>
+<sc-if value="{{ statusOpen }}">
+<div style="position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:30;box-sizing:border-box;padding:6px;border-radius:10px;background:#fff;box-shadow:0px 12px 16px -4px rgba(16,24,40,0.08),inset 0 0 0 1px var(--wk-grey-200);display:flex;flex-direction:column;gap:2px">
+<sc-for list="{{ statusOptions }}" as="so" hint-placeholder-count="4">
+<button onClick="{{ so.pick }}" style="box-sizing:border-box;width:100%;min-height:36px;padding:6px 10px;border:none;border-radius:7px;cursor:pointer;background:{{ so.bg }};display:flex;align-items:center;gap:8px;font:500 15px/22px var(--font-body);color:{{ so.fg }};text-align:left">
+<span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ so.label }}</span>
+<sc-if value="{{ so.on }}"><i class="ph-bold ph-check" style="font-size:13px;flex-shrink:0;color:var(--wk-blue-600)"></i></sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="font:600 12px/18px var(--font-body);letter-spacing:.04em;color:var(--wk-grey-500)">GRAAD</span>
+<div style="position:relative">
+<button onClick="{{ openGradeDd }}" style="box-sizing:border-box;width:100%;height:40px;padding:0 14px;border:none;border-radius:8px;cursor:pointer;background:#fff;box-shadow:inset 0 0 0 1px var(--wk-grey-300);display:flex;align-items:center;gap:8px;font:500 15px/22px var(--font-body);color:var(--wk-grey-900)">
+<span style="width:8px;height:8px;flex-shrink:0;border-radius:50%;background:{{ gradeDot }}"></span>
+<span style="flex:1;min-width:0;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ gradeLabel }}</span>
+<i class="{{ gradeCaret }}" style="font-size:14px;flex-shrink:0;color:var(--wk-grey-500)"></i>
+</button>
+<sc-if value="{{ gradeOpen }}">
+<div data-scroll="" style="position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:30;max-height:260px;overflow-y:auto;box-sizing:border-box;padding:6px;border-radius:10px;background:#fff;box-shadow:0px 12px 16px -4px rgba(16,24,40,0.08),inset 0 0 0 1px var(--wk-grey-200);display:flex;flex-direction:column;gap:2px">
+<sc-for list="{{ gradeOptions }}" as="go" hint-placeholder-count="6">
+<button onClick="{{ go.pick }}" style="box-sizing:border-box;width:100%;min-height:36px;padding:6px 10px;border:none;border-radius:7px;cursor:pointer;background:{{ go.bg }};display:flex;align-items:center;gap:8px;font:500 15px/22px var(--font-body);color:{{ go.fg }};text-align:left">
+<span style="width:8px;height:8px;flex-shrink:0;border-radius:50%;background:{{ go.dot }}"></span>
+<span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ go.label }}</span>
+<sc-if value="{{ go.on }}"><i class="ph-bold ph-check" style="font-size:13px;flex-shrink:0;color:var(--wk-blue-600)"></i></sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+<sc-if value="{{ showSubjectFilter }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="font:600 12px/18px var(--font-body);letter-spacing:.04em;color:var(--wk-grey-500)">VAK</span>
+<div style="display:flex;flex-direction:column;gap:2px">
+<sc-for list="{{ subjects }}" as="sj" hint-placeholder-count="5">
+<button onClick="{{ sj.pick }}" style="box-sizing:border-box;width:100%;min-height:36px;padding:7px 12px;border:none;border-radius:6px;cursor:pointer;background:{{ sj.bg }};display:flex;align-items:center;gap:10px;font:{{ sj.font }};color:{{ sj.fg }};text-align:left;transition:background .16s ease" style-hover="background:var(--wk-grey-100)">
+<span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ sj.label }}</span>
+<span style="flex-shrink:0;min-width:22px;padding:0 6px;border-radius:var(--radius-full);background:{{ sj.countBg }};text-align:center;font:600 12px/20px var(--font-body);color:{{ sj.countFg }}">{{ sj.count }}</span>
+</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ showContentAreas }}">
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="font:600 12px/18px var(--font-body);letter-spacing:.04em;color:var(--wk-grey-500)">INHOUDSAREA</span>
+<div style="display:flex;flex-direction:column;gap:2px">
+<sc-for list="{{ contentAreas }}" as="ca" hint-placeholder-count="3">
+<button onClick="{{ ca.pick }}" style="box-sizing:border-box;width:100%;min-height:36px;padding:7px 12px;border:none;border-radius:6px;cursor:pointer;background:{{ ca.bg }};display:flex;align-items:center;gap:10px;font:{{ ca.font }};color:{{ ca.fg }};text-align:left;transition:background .16s ease" style-hover="background:var(--wk-grey-100)">
+<span style="width:4px;height:4px;flex-shrink:0;border-radius:50%;background:{{ ca.dot }}"></span>
+<span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ ca.label }}</span>
+</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<div style="flex:1 1 auto;min-width:0;min-height:{{ browseMinH }};box-sizing:border-box;background:var(--wk-grey-100);box-shadow:inset 0 0 0 1px var(--wk-grey-300);display:flex;flex-direction:column">
+<div style="flex:1 1 auto;min-height:0;box-sizing:border-box;padding:{{ browsePad }};display:flex;flex-direction:column;gap:{{ browseGap }}">
+
+<sc-if value="{{ showMobileFilters }}">
+<div style="display:flex;align-items:center;gap:8px">
+<button onClick="{{ openSheet }}" style="flex:1 1 0;min-width:0;box-sizing:border-box;min-height:44px;padding:0 14px;border:none;border-radius:var(--radius-full);cursor:pointer;background:#fff;box-shadow:inset 0 0 0 1px var(--wk-grey-300);display:flex;align-items:center;gap:10px;font:inherit">
+<i class="ph ph-sliders-horizontal" style="font-size:18px;flex-shrink:0;color:var(--wk-grey-600)"></i>
+<span style="flex:1;min-width:0;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:600 15px/22px var(--font-body);color:var(--wk-grey-900)">{{ filterSummary }}</span>
+<sc-if value="{{ hasFilters }}">
+<span style="flex-shrink:0;min-width:22px;padding:0 7px;border-radius:var(--radius-full);background:var(--wk-blue-600);text-align:center;font:600 12px/20px var(--font-body);color:#fff">{{ filterCount }}</span>
+</sc-if>
+</button>
+<button onClick="{{ openSortSheet }}" title="Sorteer" style="flex:1 1 0;min-width:0;box-sizing:border-box;min-height:44px;padding:0 14px;border:none;border-radius:var(--radius-full);cursor:pointer;background:#fff;box-shadow:inset 0 0 0 1px var(--wk-grey-300);display:flex;align-items:center;gap:7px;white-space:nowrap;font:600 14px/20px var(--font-body);color:var(--wk-grey-700)">
+<i class="ph ph-arrows-down-up" style="font-size:17px;flex-shrink:0;color:var(--wk-grey-600)"></i><span style="flex:1;min-width:0;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ sortLabel }}</span>
+</button>
+</div>
+</sc-if>
+
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
+<span style="min-width:0;font:{{ browseHeadFont }};color:var(--wk-grey-950);text-wrap:pretty">{{ browseHeading }}</span>
+<sc-if value="{{ showRail }}" hint-placeholder-val="{{ true }}">
+<button onClick="{{ cycleSort }}" style="flex-shrink:0;height:40px;padding:0 14px;border:none;border-radius:var(--radius-full);cursor:pointer;background:#fff;box-shadow:inset 0 0 0 1px var(--wk-grey-300);display:flex;align-items:center;gap:8px;white-space:nowrap;font:600 14px/20px var(--font-body);color:var(--wk-grey-700)" style-hover="background:var(--wk-grey-50)">
+<i class="ph ph-arrows-down-up" style="font-size:16px"></i>{{ sortLabel }}
+</button>
+</sc-if>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:{{ browseGap }}">
+<sc-for list="{{ series }}" as="s" hint-placeholder-count="5">
+<div style="position:relative;box-sizing:border-box;min-width:0;border-radius:16px;background:{{ s.tone }};box-shadow:0px 8px 16px -4px rgba(16,24,40,0.05),0px 4px 8px -2px rgba(16,24,40,0.03);display:flex;flex-flow:row wrap;align-items:stretch;transition:transform .18s ease,box-shadow .18s ease" style-hover="transform:translateY(-2px);box-shadow:0px 14px 22px -8px rgba(16,24,40,.16)">
+<div style="position:relative;overflow:hidden;border-radius:{{ thumbRadius }};flex:0 0 auto;width:{{ thumbW }};min-height:{{ thumbMinH }};aspect-ratio:{{ thumbAspect }};align-self:{{ thumbAlign }};background:{{ s.tone }};display:flex;align-items:center;justify-content:center">
+<span style="position:absolute;left:-30px;bottom:-46px;width:150px;height:150px;border-radius:50%;pointer-events:none;background:{{ s.glow }};filter:blur(24px)"></span>
+<i class="{{ s.icon }}" style="position:relative;font-size:{{ thumbIcon }};color:rgba(255,255,255,.92)"></i>
+</div>
+<sc-if value="{{ s.showTag }}">
+<span style="position:absolute;left:0;top:0;z-index:1;display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:16px 0 16px 0;background:{{ s.tagBg }};white-space:nowrap;font:600 13px/18px var(--font-body);color:#fff">
+<sc-if value="{{ s.verified }}"><i class="ph-fill ph-cloud" style="font-size:13px;color:#fff"></i></sc-if>{{ s.tag }}</span>
+</sc-if>
+<div style="flex:1 1 {{ rowContentMin }};min-width:{{ rowContentMin }};box-sizing:border-box;border-radius:{{ rowContentRadius }};padding:{{ rowPad }};background:{{ s.contentBg }};display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;align-items:flex-start;gap:16px">
+<span style="flex:1;min-width:0;font:{{ rowTitleFont }};color:{{ s.titleColor }};text-wrap:pretty">{{ s.title }}</span>
+<sc-if value="{{ isLearner }}">
+<button onClick="{{ s.toggleFav }}" title="{{ s.favLabel }}" aria-label="{{ s.favLabel }}" style="flex-shrink:0;width:28px;height:28px;padding:0;border:none;border-radius:50%;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:var(--wk-grey-100)">
+<i class="{{ s.favIcon }}" style="font-size:18px;color:{{ s.favFg }}"></i>
+</button>
+</sc-if>
+<sc-if value="{{ canManageSeries }}" hint-placeholder-val="{{ true }}">
+<span style="position:relative;flex-shrink:0">
+<button onClick="{{ s.toggleMenu }}" title="Meer aksies" aria-label="Meer aksies" style="width:28px;height:28px;padding:0;border:none;border-radius:50%;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:var(--wk-grey-100)">
+<i class="ph-bold ph-dots-three-vertical" style="font-size:18px;color:var(--wk-grey-500)"></i>
+</button>
+<sc-if value="{{ s.menuOpen }}">
+<div style="position:absolute;right:0;top:calc(100% + 6px);z-index:30;box-sizing:border-box;width:212px;padding:6px;border-radius:10px;background:#fff;box-shadow:0px 12px 16px -4px rgba(16,24,40,0.08),inset 0 0 0 1px var(--wk-grey-200);display:flex;flex-direction:column;gap:2px">
+<sc-for list="{{ s.actions }}" as="ac" hint-placeholder-count="5">
+<button onClick="{{ ac.go }}" style="box-sizing:border-box;width:100%;min-height:36px;padding:6px 10px;border:none;border-radius:7px;cursor:pointer;background:none;display:flex;align-items:center;gap:10px;font:500 15px/22px var(--font-body);color:{{ ac.fg }};text-align:left" style-hover="background:var(--wk-grey-50)">
+<i class="{{ ac.icon }}" style="font-size:17px;flex-shrink:0"></i>
+<span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ ac.label }}</span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</span>
+</sc-if>
+</div>
+<span style="font:500 14px/20px var(--font-body);color:{{ s.metaColor }}">{{ s.grade }} · {{ s.subject }} · {{ s.count }} kaarte</span>
+</div>
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:auto">
+<span style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;min-width:0">
+<sc-if value="{{ isTeacher }}">
+<span style="display:inline-flex;align-items:center;gap:6px;flex-shrink:0;height:28px;padding:0 10px;border-radius:var(--radius-full);background:{{ s.ownerBg }};font:500 13px/18px var(--font-body);color:{{ s.ownerFg }}">
+<i class="{{ s.ownerIcon }}" style="font-size:14px"></i>{{ s.owner }}
+</span>
+</sc-if>
+<sc-if value="{{ showProgressTags }}">
+<span style="display:inline-flex;align-items:center;gap:8px;white-space:nowrap;font:400 13px/18px var(--font-body);color:var(--wk-grey-500)">
+<span style="display:inline-flex;align-items:center;gap:5px"><i class="ph ph-arrows-clockwise" style="font-size:14px;color:var(--warning-600)"></i><span style="color:var(--warning-700)">{{ s.reviewN }} Hersien</span></span>
+<span style="display:inline-flex;align-items:center;gap:5px"><i class="ph ph-check-circle" style="font-size:14px;color:var(--success-600)"></i>{{ s.knownN }} Verstaan</span>
+</span>
+</sc-if>
+</span>
+<sc-if value="{{ showInlineCta }}" hint-placeholder-val="{{ true }}">
+<button onClick="{{ s.open }}" style="flex-shrink:0;height:36px;padding:0 16px;border:none;border-radius:var(--radius-full);cursor:pointer;background:{{ s.ctaBg }};box-shadow:{{ s.ctaRing }};display:flex;align-items:center;gap:7px;white-space:nowrap;font:600 14px/20px var(--font-body);color:{{ s.ctaFg }}">
+{{ s.cta }}<i class="{{ s.ctaIcon }}" style="font-size:14px"></i>
+</button>
+</sc-if>
+</div>
+<div style="display:flex;align-items:center;gap:10px">
+<span style="flex:1;min-width:0;height:6px;border-radius:3px;background:{{ s.trackBg }};overflow:hidden;display:block">
+<span style="display:block;height:6px;width:{{ s.pct }};border-radius:3px;background:{{ s.tone500 }}"></span>
+</span>
+<span style="flex-shrink:0;white-space:nowrap;font:500 13px/18px var(--font-body);color:{{ s.metaColor }}">{{ s.pct }}</span>
+</div>
+<sc-if value="{{ showBlockCta }}">
+<button onClick="{{ s.open }}" style="box-sizing:border-box;width:100%;min-height:44px;padding:8px 16px;border:none;border-radius:var(--radius-full);cursor:pointer;background:{{ s.ctaBg }};box-shadow:{{ s.ctaRing }};display:flex;align-items:center;justify-content:center;gap:7px;font:600 15px/22px var(--font-body);color:{{ s.ctaFg }}">
+{{ s.cta }}<i class="{{ s.ctaIcon }}" style="font-size:15px"></i>
+</button>
+</sc-if>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+
+<sc-if value="{{ isEmpty }}">
+<div style="position:relative;flex:1 1 auto;min-height:fit-content;box-sizing:border-box;padding:48px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center">
+<span style="position:relative;width:88px;height:88px;flex-shrink:0;border-radius:50%;background:linear-gradient(155deg,var(--wk-grey-400) 0%,var(--wk-grey-600) 100%);box-shadow:0px 16px 32px -10px rgba(102,112,133,.45);display:flex;align-items:center;justify-content:center;animation:wk-float 3.2s ease-in-out infinite;margin-bottom:16px">
+<span style="position:absolute;inset:-10px;border-radius:50%;border:1.5px dashed var(--wk-grey-300);animation:wk-spin-slow 18s linear infinite"></span>
+<img src="assets/wolkskool-mark-white.png" alt="" style="position:relative;width:44px;height:auto">
+</span>
+<span style="position:relative;font:600 19px/27px var(--font-display);color:var(--wk-grey-900)">Geen resultate gevind nie</span>
+<span style="position:relative;max-width:360px;font:400 15px/22px var(--font-body);color:var(--wk-grey-600);text-wrap:pretty">Probeer 'n ander woord soek of kies 'n ander filter.</span>
+<button onClick="{{ createGo }}" style="position:relative;margin-top:6px;min-height:40px;padding:0 18px;border:none;border-radius:var(--radius-full);cursor:pointer;background:var(--wk-blue-600);font:600 14px/20px var(--font-body);color:#fff;display:flex;align-items:center;gap:8px"><i class="ph-bold ph-plus" style="font-size:16px"></i>Skep reeks</button>
+</div>
+</sc-if>
+</div>
+
+</div>
+</div>
+
+<sc-if value="{{ sortSheetOpen }}">
+<div style="position:{{ overlayPos }};inset:0;z-index:60;display:flex;flex-direction:column;justify-content:flex-end;animation:wk-fade .18s ease both">
+<button onClick="{{ closeSortSheet }}" aria-label="Maak toe" style="position:absolute;inset:0;border:none;padding:0;margin:0;cursor:pointer;background:rgba(16,24,40,.45);backdrop-filter:blur(6px)"></button>
+<div style="position:relative;box-sizing:border-box;width:100%;border-radius:20px 20px 0 0;background:#fff;box-shadow:0px -12px 32px -8px rgba(8,7,79,.45);display:flex;flex-direction:column;animation:wk-sheet .24s cubic-bezier(.22,1,.36,1) both">
+<div style="flex-shrink:0;box-sizing:border-box;padding:14px 20px 12px;display:flex;flex-direction:column;gap:12px;box-shadow:inset 0 -1px 0 0 var(--wk-grey-200)">
+<span style="align-self:center;width:44px;height:4px;border-radius:2px;background:var(--wk-grey-300);display:block"></span>
+<span style="font:600 18px/26px var(--font-display);color:var(--wk-grey-950)">Sorteer reekse</span>
+</div>
+<div style="box-sizing:border-box;padding:8px 12px 20px;display:flex;flex-direction:column;gap:2px">
+<sc-for list="{{ sortOptions }}" as="op" hint-placeholder-count="3">
+<button onClick="{{ op.pick }}" style="box-sizing:border-box;width:100%;min-height:52px;padding:10px 12px;border:none;border-radius:10px;cursor:pointer;background:{{ op.bg }};display:flex;align-items:center;gap:12px;font:inherit;text-align:left">
+<i class="{{ op.icon }}" style="font-size:20px;flex-shrink:0;color:{{ op.fg }}"></i>
+<span style="flex:1;min-width:0;display:flex;flex-direction:column">
+<span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:{{ op.font }};color:{{ op.fg }}">{{ op.label }}</span>
+<span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:400 13px/18px var(--font-body);color:var(--wk-grey-500)">{{ op.hint }}</span>
+</span>
+<sc-if value="{{ op.on }}"><i class="ph-bold ph-check" style="font-size:15px;flex-shrink:0;color:var(--wk-blue-600)"></i></sc-if>
+</button>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ sheetOpen }}">
+<div style="position:{{ overlayPos }};inset:0;z-index:60;display:flex;flex-direction:column;justify-content:flex-end;animation:wk-fade .18s ease both">
+<button onClick="{{ closeSheet }}" aria-label="Maak toe" style="position:absolute;inset:0;border:none;padding:0;margin:0;cursor:pointer;background:rgba(16,24,40,.45);backdrop-filter:blur(6px)"></button>
+<div style="position:relative;box-sizing:border-box;width:100%;max-height:86%;border-radius:20px 20px 0 0;background:#fff;box-shadow:0px -12px 32px -8px rgba(8,7,79,.45);display:flex;flex-direction:column;animation:wk-sheet .24s cubic-bezier(.22,1,.36,1) both">
+<div style="flex-shrink:0;box-sizing:border-box;padding:14px 20px 12px;display:flex;flex-direction:column;gap:12px;box-shadow:inset 0 -1px 0 0 var(--wk-grey-200)">
+<span style="align-self:center;width:44px;height:4px;border-radius:2px;background:var(--wk-grey-300);display:block"></span>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+<span style="font:600 18px/26px var(--font-display);color:var(--wk-grey-950)">Filtreer reekse</span>
+<button onClick="{{ resetBrowse }}" style="flex-shrink:0;min-height:32px;padding:0 12px;border:none;border-radius:var(--radius-full);cursor:pointer;background:none;font:600 14px/20px var(--font-body);color:var(--wk-blue-700)">Herstel</button>
+</div>
+</div>
+<div data-scroll="" style="flex:1;min-height:0;overflow-y:auto;box-sizing:border-box;padding:16px 20px 20px;display:flex;flex-direction:column;gap:16px">
+
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="font:600 12px/18px var(--font-body);letter-spacing:.04em;color:var(--wk-grey-500)">STATUS</span>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ statusOptions }}" as="so" hint-placeholder-count="7">
+<button onClick="{{ so.pickSheet }}" style="flex-shrink:0;min-height:40px;padding:0 16px;border:none;border-radius:var(--radius-full);cursor:pointer;background:{{ so.chipBg }};font:{{ so.chipFont }};color:{{ so.chipFg }};white-space:nowrap">{{ so.label }}</button>
+</sc-for>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="font:600 12px/18px var(--font-body);letter-spacing:.04em;color:var(--wk-grey-500)">GRAAD</span>
+<button onClick="{{ openSheetGrade }}" style="box-sizing:border-box;width:100%;min-height:48px;padding:0 14px;border:none;border-radius:10px;cursor:pointer;background:#fff;box-shadow:inset 0 0 0 1px var(--wk-grey-300);display:flex;align-items:center;gap:10px;font:500 16px/24px var(--font-body);color:var(--wk-grey-900)">
+<span style="width:8px;height:8px;flex-shrink:0;border-radius:50%;background:{{ gradeDot }}"></span>
+<span style="flex:1;min-width:0;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ gradeLabel }}</span>
+<i class="{{ sheetGradeCaret }}" style="font-size:15px;flex-shrink:0;color:var(--wk-grey-500)"></i>
+</button>
+<sc-if value="{{ sheetGradeOpen }}">
+<div data-scroll="" style="box-sizing:border-box;max-height:260px;overflow-y:auto;padding:6px;border-radius:10px;background:var(--wk-grey-50);box-shadow:inset 0 0 0 1px var(--wk-grey-200);display:flex;flex-direction:column;gap:2px">
+<sc-for list="{{ gradeOptions }}" as="go" hint-placeholder-count="13">
+<button onClick="{{ go.pickSheet }}" style="box-sizing:border-box;width:100%;min-height:44px;padding:8px 12px;border:none;border-radius:8px;cursor:pointer;background:{{ go.bg }};display:flex;align-items:center;gap:10px;font:500 16px/24px var(--font-body);color:{{ go.fg }};text-align:left">
+<span style="width:8px;height:8px;flex-shrink:0;border-radius:50%;background:{{ go.dot }}"></span>
+<span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ go.label }}</span>
+<sc-if value="{{ go.on }}"><i class="ph-bold ph-check" style="font-size:14px;flex-shrink:0;color:var(--wk-blue-600)"></i></sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+
+<sc-if value="{{ showSubjectFilter }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="font:600 12px/18px var(--font-body);letter-spacing:.04em;color:var(--wk-grey-500)">VAK</span>
+<button onClick="{{ openSheetSubj }}" style="box-sizing:border-box;width:100%;min-height:48px;padding:0 14px;border:none;border-radius:10px;cursor:pointer;background:#fff;box-shadow:inset 0 0 0 1px var(--wk-grey-300);display:flex;align-items:center;gap:10px;font:500 16px/24px var(--font-body);color:var(--wk-grey-900)">
+<span style="flex:1;min-width:0;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ subjectOnlyLabel }}</span>
+<i class="{{ sheetSubjCaret }}" style="font-size:15px;flex-shrink:0;color:var(--wk-grey-500)"></i>
+</button>
+<sc-if value="{{ sheetSubjOpen }}">
+<div data-scroll="" style="box-sizing:border-box;max-height:300px;overflow-y:auto;padding:6px;border-radius:10px;background:var(--wk-grey-50);box-shadow:inset 0 0 0 1px var(--wk-grey-200);display:flex;flex-direction:column;gap:2px">
+<sc-for list="{{ subjects }}" as="sj" hint-placeholder-count="6">
+<button onClick="{{ sj.pick }}" style="box-sizing:border-box;width:100%;min-height:44px;padding:8px 12px;border:none;border-radius:8px;cursor:pointer;background:{{ sj.bg }};display:flex;align-items:center;gap:10px;font:{{ sj.font }};color:{{ sj.fg }};text-align:left">
+<span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ sj.label }}</span>
+<span style="flex-shrink:0;min-width:22px;padding:0 6px;border-radius:var(--radius-full);background:{{ sj.countBg }};text-align:center;font:600 12px/20px var(--font-body);color:{{ sj.countFg }}">{{ sj.count }}</span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ showContentAreas }}">
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="font:600 12px/18px var(--font-body);letter-spacing:.04em;color:var(--wk-grey-500)">INHOUDSAREA</span>
+<button onClick="{{ openSheetGebied }}" style="box-sizing:border-box;width:100%;min-height:48px;padding:0 14px;border:none;border-radius:10px;cursor:pointer;background:#fff;box-shadow:inset 0 0 0 1px var(--wk-grey-300);display:flex;align-items:center;gap:10px;font:500 16px/24px var(--font-body);color:var(--wk-grey-900)">
+<span style="flex:1;min-width:0;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ areaLabel }}</span>
+<i class="{{ sheetGebiedCaret }}" style="font-size:15px;flex-shrink:0;color:var(--wk-grey-500)"></i>
+</button>
+<sc-if value="{{ sheetGebiedOpen }}">
+<div data-scroll="" style="box-sizing:border-box;max-height:300px;overflow-y:auto;padding:6px;border-radius:10px;background:var(--wk-grey-50);box-shadow:inset 0 0 0 1px var(--wk-grey-200);display:flex;flex-direction:column;gap:2px">
+<sc-for list="{{ contentAreas }}" as="ca" hint-placeholder-count="3">
+<button onClick="{{ ca.pick }}" style="box-sizing:border-box;width:100%;min-height:44px;padding:8px 12px;border:none;border-radius:8px;cursor:pointer;background:{{ ca.bg }};display:flex;align-items:center;gap:10px;font:{{ ca.font }};color:{{ ca.fg }};text-align:left">
+<span style="width:4px;height:4px;flex-shrink:0;border-radius:50%;background:{{ ca.dot }}"></span>
+<span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ ca.label }}</span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+</div>
+<div style="flex-shrink:0;box-sizing:border-box;padding:12px 20px 20px;box-shadow:inset 0 1px 0 0 var(--wk-grey-200)">
+<button onClick="{{ closeSheet }}" style="box-sizing:border-box;width:100%;min-height:48px;border:none;border-radius:var(--radius-full);cursor:pointer;background:var(--wk-blue-600);font:600 16px/24px var(--font-body);color:#fff">{{ sheetCta }}</button>
+</div>
+</div>
+</div>
+</sc-if>
+
+<footer style="flex-shrink:0;box-sizing:border-box;padding:{{ footPad }};background:var(--wk-grey-50);box-shadow:inset 0 0.5px 0 0 var(--wk-grey-300);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
+<span style="display:inline-flex;align-items:center;gap:10px">
+<img src="assets/wolkskool-mark-primary.png" alt="" style="height:20px;width:auto;flex-shrink:0;filter:grayscale(1);opacity:.45">
+<span style="font:400 13px/20px var(--font-body);color:var(--wk-grey-600)">© 2026 Wolkskool</span>
+</span>
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:20px">
+<sc-for list="{{ footLinks }}" as="lk" hint-placeholder-count="3">
+<button style="border:none;background:none;padding:0;cursor:pointer;font:400 13px/20px var(--font-body);color:var(--wk-grey-700);transition:color .16s ease" style-hover="color:var(--wk-blue-700)">{{ lk }}</button>
+</sc-for>
+</div>
+</footer>
+</div>
+</sc-if>
+
+<sc-if value="{{ isSeries }}">
+<div style="position:sticky;top:{{ pgHeadTop }};z-index:25;flex-shrink:0;display:flex;flex-direction:column;transform:{{ editHeaderTransform }};transition:transform .25s ease">
+<div style="position:relative;flex-shrink:0;background:linear-gradient(140deg,{{ headerGradA }} 0%,{{ headerGradB }} 62%,{{ headerGradC }} 100%)">
+<div style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
+<span style="position:absolute;left:-70px;top:-120px;width:340px;height:340px;border-radius:50%;pointer-events:none;background:radial-gradient(closest-side,color-mix(in srgb,{{ blobColorA }} 34%,transparent),transparent);filter:blur(36px);animation:wk-glow 9s ease-in-out infinite"></span>
+<span style="position:absolute;right:10%;bottom:-170px;width:320px;height:320px;border-radius:50%;pointer-events:none;background:radial-gradient(closest-side,color-mix(in srgb,{{ blobColorB }} 30%,transparent),transparent);filter:blur(36px);animation:wk-glow 11s ease-in-out infinite"></span>
+</div>
+
+<sc-if value="{{ showSeriesTag }}">
+<span style="position:absolute;right:0;top:0;z-index:2;display:inline-flex;align-items:center;height:40px;padding:0 20px;border-radius:0 0 0 18px;background:{{ seriesTagBg }};white-space:nowrap;font:600 16px/24px var(--font-body);color:#fff">{{ seriesTag }}</span>
+</sc-if>
+
+<div style="position:relative;box-sizing:border-box;padding:{{ heroPad }};display:flex;flex-direction:{{ heroDir }};align-items:{{ heroAlign }};gap:{{ heroGap }}">
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:{{ heroTextGap }};animation:wk-rise .5s ease both">
+<button onClick="{{ goOverview }}" style="align-self:flex-start;padding:0;border:none;background:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font:500 14px/20px var(--font-body);color:rgba(255,255,255,.66)" style-hover="color:#fff">
+<i class="ph-bold ph-arrow-left" style="font-size:16px"></i>Terug na Flitsgids
+</button>
+<div style="display:flex;align-items:center;gap:12px">
+<button onClick="{{ toggleFav }}" title="{{ favLabel }}" aria-label="{{ favLabel }}" style="flex-shrink:0;padding:0;border:none;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transform:{{ favScale }};transition:transform .18s ease" style-hover="transform:scale(1.14)">
+<i class="{{ favIcon }}" style="font-size:{{ heroStar }};color:{{ favFg }};transition:color .16s ease"></i>
+</button>
+<span style="min-width:0;font:{{ heroH1 }};letter-spacing:-0.02em;color:#fff;text-wrap:pretty">{{ seriesTitle }}</span>
+</div>
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:{{ heroMetaGap }}">
+<span style="display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px;flex-shrink:1;min-width:0">
+<span style="display:inline-flex;align-items:center;height:30px;padding:0 13px;border-radius:var(--radius-full);background:rgba(255,255,255,.20);box-shadow:inset 0 0 0 1px rgba(255,255,255,.30);font:600 15px/22px var(--font-body);color:#fff">{{ seriesGrade }}</span>
+<span style="font:{{ heroMeta }};color:rgba(255,255,255,.82)">{{ seriesSubject }}</span>
+</span>
+<sc-if value="{{ showProgressTags }}">
+<span style="flex:1;min-width:{{ heroTrackMin }};display:flex;align-items:center;gap:12px">
+<span style="flex:1;min-width:0;height:8px;border-radius:4px;background:rgba(255,255,255,.16);overflow:hidden;display:block">
+<span style="display:block;height:8px;width:{{ seriesPct }};border-radius:4px;background:var(--wk-info-500)"></span>
+</span>
+<span style="flex-shrink:0;white-space:nowrap;font:500 14px/20px var(--font-body);color:rgba(255,255,255,.82)">{{ seriesPct }} verstaan</span>
+</span>
+</sc-if>
+</div>
+</div>
+<div style="flex-shrink:0;display:flex;align-items:center;gap:10px;width:{{ heroActW }}">
+<sc-if value="{{ isOwner }}">
+<button onClick="{{ goSettings }}" aria-label="Instellings" title="Instellings" style="width:44px;height:44px;flex-shrink:0;padding:0;border:none;border-radius:50%;background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.26);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:rgba(255,255,255,.20)">
+<i class="ph-bold ph-gear-six" style="font-size:20px;color:#fff"></i>
+</button>
+<button onClick="{{ goEditSeries }}" aria-label="Wysig reeks" title="Wysig reeks" style="width:44px;height:44px;flex-shrink:0;padding:0;border:none;border-radius:50%;background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.26);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:rgba(255,255,255,.20)">
+<i class="ph-bold ph-pencil-simple" style="font-size:20px;color:#fff"></i>
+</button>
+</sc-if>
+<button onClick="{{ enterFocus }}" aria-label="Fokus reeks" title="Fokus reeks" style="width:44px;height:44px;flex-shrink:0;padding:0;border:none;border-radius:50%;background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.26);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:rgba(255,255,255,.20)">
+<i class="ph-bold ph-play" style="font-size:20px;color:#fff"></i>
+</button>
+<span style="position:relative;flex:{{ heroCtaGrow }}">
+<button onClick="{{ toggleActions }}" style="width:100%;min-width:0;min-height:44px;padding:0 20px;border:none;border-radius:var(--radius-full);background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.26);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;font:600 15px/22px var(--font-body);color:#fff" style-hover="background:rgba(255,255,255,.20)">
+Aksies<i class="ph-bold ph-caret-down" style="font-size:14px"></i>
+</button>
+<sc-if value="{{ actionsOpen }}">
+<div style="position:absolute;right:0;top:calc(100% + 6px);z-index:70;box-sizing:border-box;width:212px;padding:6px;border-radius:10px;background:#fff;box-shadow:0px 12px 16px -4px rgba(16,24,40,0.08),inset 0 0 0 1px var(--wk-grey-200);display:flex;flex-direction:column;gap:2px">
+<sc-for list="{{ heroActions }}" as="ac" hint-placeholder-count="2">
+<button onClick="{{ ac.go }}" style="box-sizing:border-box;width:100%;min-height:36px;padding:6px 10px;border:none;border-radius:7px;cursor:pointer;background:none;display:flex;align-items:center;gap:10px;font:500 15px/22px var(--font-body);color:{{ ac.fg }};text-align:left" style-hover="background:var(--wk-grey-50)">
+<i class="{{ ac.icon }}" style="font-size:17px;flex-shrink:0"></i>
+<span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ ac.label }}</span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</span>
+</div>
+</div>
+</div>
+
+<sc-if value="{{ isEdit }}">
+<div style="flex-shrink:0;box-sizing:border-box;padding:{{ secPad }};background:#fff;box-shadow:0 1px 0 0 var(--wk-grey-200);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
+<span style="font:600 20px/28px var(--font-display);color:var(--wk-grey-950)">{{ editHeading }}</span>
+<div style="display:flex;align-items:center;gap:10px">
+<sc-if value="{{ hasPicked }}">
+<button onClick="{{ deletePicked }}" style="min-height:40px;padding:0 16px;border:none;border-radius:var(--radius-full);cursor:pointer;background:#fff;box-shadow:inset 0 0 0 1px var(--wk-cinnabar-300);display:flex;align-items:center;gap:8px;font:600 14px/20px var(--font-body);color:var(--wk-cinnabar-700)" style-hover="background:var(--wk-cinnabar-100)">
+<i class="ph ph-trash" style="font-size:15px"></i>{{ deleteLabel }}
+</button>
+<button onClick="{{ clearPicked }}" aria-label="Ontkies alles" title="Ontkies alles" style="width:40px;height:40px;flex-shrink:0;padding:0;border:none;border-radius:50%;cursor:pointer;background:#fff;box-shadow:inset 0 0 0 1px var(--wk-grey-300);display:flex;align-items:center;justify-content:center" style-hover="background:var(--wk-grey-50)">
+<i class="ph-bold ph-x" style="font-size:16px;color:var(--wk-grey-700)"></i>
+</button>
+</sc-if>
+<sc-if value="{{ showAddCard }}" hint-placeholder-val="{{ true }}">
+<button onClick="{{ goList }}" style="min-height:40px;padding:0 16px;border:none;border-radius:var(--radius-full);cursor:pointer;background:var(--wk-emerald-600);display:flex;align-items:center;gap:8px;font:600 14px/20px var(--font-body);color:#fff" style-hover="background:var(--wk-emerald-700)">
+<i class="ph-bold ph-check" style="font-size:15px"></i>Stoor
+</button>
+</sc-if>
+<sc-if value="{{ showAddCard }}" hint-placeholder-val="{{ true }}">
+<span style="position:relative">
+<button onClick="{{ toggleAddCard }}" style="min-height:40px;padding:0 12px 0 16px;border:none;border-radius:var(--radius-full);cursor:pointer;background:#fff;box-shadow:inset 0 0 0 1px var(--wk-grey-300);display:flex;align-items:center;gap:8px;font:600 14px/20px var(--font-body);color:var(--wk-grey-700)" style-hover="background:var(--wk-grey-50)">
+Nuwe kaart<i class="ph-bold ph-plus" style="font-size:12px"></i>
+</button>
+<sc-if value="{{ addCardOpen }}">
+<div style="position:absolute;left:0;top:calc(100% + 6px);z-index:30;box-sizing:border-box;width:190px;padding:6px;border-radius:10px;background:#fff;box-shadow:0px 12px 16px -4px rgba(16,24,40,0.08),inset 0 0 0 1px var(--wk-grey-200);display:flex;flex-direction:column;gap:2px">
+<button onClick="{{ addSingleCard }}" style="box-sizing:border-box;width:100%;min-height:36px;padding:6px 10px;border:none;border-radius:7px;cursor:pointer;background:none;display:flex;align-items:center;gap:10px;font:500 15px/22px var(--font-body);color:var(--wk-grey-700);text-align:left" style-hover="background:var(--wk-grey-50)">
+<i class="ph ph-file-plus" style="font-size:16px;flex-shrink:0"></i>Enkel kaart
+</button>
+<button onClick="{{ addBulkCards }}" style="box-sizing:border-box;width:100%;min-height:36px;padding:6px 10px;border:none;border-radius:7px;cursor:pointer;background:none;display:flex;align-items:center;gap:10px;font:500 15px/22px var(--font-body);color:var(--wk-grey-700);text-align:left" style-hover="background:var(--wk-grey-50)">
+<i class="ph ph-files" style="font-size:16px;flex-shrink:0"></i>Bulk teks kaarte
+</button>
+</div>
+</sc-if>
+</span>
+</sc-if>
+</div>
+</div>
+</sc-if>
+</div>
+
+<sc-if value="{{ showPanelSwitch }}">
+<div style="flex-shrink:0;box-sizing:border-box;padding:8px 16px 0;background:#fff;box-shadow:inset 0 -1px 0 0 var(--wk-grey-200);display:flex;gap:20px">
+<button onClick="{{ showCardsPanel }}" style="flex-shrink:0;padding:10px 2px;border:none;background:none;cursor:pointer;box-shadow:{{ tabCardsRing }};font:600 15px/22px var(--font-body);color:{{ tabCardsFg }};transition:color .16s ease">Kaarte</button>
+<button onClick="{{ showInfoPanel }}" style="flex-shrink:0;padding:10px 2px;border:none;background:none;cursor:pointer;box-shadow:{{ tabInfoRing }};font:600 15px/22px var(--font-body);color:{{ tabInfoFg }};transition:color .16s ease">{{ infoTabLabel }}</button>
+</div>
+</sc-if>
+
+<div style="flex:1;min-height:0;display:flex;flex-direction:{{ bodyDir }};align-items:stretch">
+
+<sc-if value="{{ showList }}" hint-placeholder-val="{{ true }}">
+<div data-scroll="" style="flex-shrink:0;box-sizing:border-box;width:{{ listWNow }};max-height:{{ listMaxH }};overflow-y:auto;padding:{{ listPad }};background:var(--wk-grey-50);box-shadow:{{ listRing }};display:flex;flex-direction:column;gap:16px">
+<div style="flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:12px">
+<span style="font:600 14px/20px var(--font-body);letter-spacing:.04em;text-transform:uppercase;color:var(--wk-grey-400)">{{ cardCount }} Flitskaarte</span>
+</div>
+<sc-for list="{{ cards }}" as="c" hint-placeholder-count="6">
+<div draggable="{{ c.draggable }}" onDragStart="{{ c.onDragStart }}" onDragOver="{{ c.onDragOver }}" onDrop="{{ c.onDrop }}" onDragEnd="{{ c.onDragEnd }}" style="flex-shrink:0;display:flex;align-items:stretch;gap:10px;opacity:{{ c.rowOpacity }};box-shadow:{{ c.dropLine }};transition:opacity .14s ease">
+<sc-if value="{{ c.showHandle }}">
+<i class="ph ph-dots-six-vertical" style="font-size:20px;flex-shrink:0;align-self:center;cursor:{{ c.handleCursor }};color:{{ c.handleFg }}"></i>
+</sc-if>
+<button onClick="{{ c.go }}" style="position:relative;flex:1;min-width:0;height:{{ cardMinH }};overflow:hidden;box-sizing:border-box;padding:{{ cardPadNow }};border:none;border-radius:16px;cursor:pointer;background:#fff;box-shadow:{{ c.ring }};display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:10px;text-align:center;font:inherit;transition:box-shadow .16s ease,transform .16s ease" style-hover="transform:translateY(-2px)">
+<sc-if value="{{ c.showTag }}">
+<span style="position:absolute;left:0;top:0;display:inline-flex;align-items:center;height:38px;padding:0 18px;border-radius:16px 0 18px 0;background:{{ c.tagBg }};font:600 15px/22px var(--font-body);color:{{ c.tagFg }}">{{ c.tag }}</span>
+</sc-if>
+<sc-if value="{{ c.showPick }}">
+<span onClick="{{ c.pick }}" style="position:absolute;left:14px;top:14px;z-index:2;width:24px;height:24px;border-radius:6px;background:{{ c.pickBg }};box-shadow:{{ c.pickRing }};display:flex;align-items:center;justify-content:center;cursor:pointer">
+<i class="ph-bold ph-check" style="font-size:15px;color:#fff;opacity:{{ c.pickOpacity }}"></i>
+</span>
+</sc-if>
+<sc-if value="{{ c.isText }}" hint-placeholder-val="{{ true }}">
+<span style="max-width:100%;overflow-wrap:anywhere;font:{{ c.font }};color:{{ c.textFg }};display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">{{ c.text }}</span>
+</sc-if>
+<sc-if value="{{ c.isFrontImage }}">
+<img src="assets/flits-front.png" alt="" style="position:absolute;left:0;top:0;width:100%;height:100%;border-radius:16px;object-fit:cover;display:block">
+</sc-if>
+<sc-if value="{{ c.isBackImage }}">
+<img src="assets/flits-back.png" alt="" style="position:absolute;left:0;top:0;width:100%;height:100%;border-radius:16px;object-fit:cover;display:block">
+</sc-if>
+</button>
+<sc-if value="{{ c.showRemove }}">
+<button onClick="{{ c.remove }}" aria-label="Verwyder kaart" style="width:32px;height:32px;flex-shrink:0;align-self:center;padding:0;border:none;border-radius:8px;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:var(--wk-grey-100)">
+<i class="ph-bold ph-x" style="font-size:16px;color:var(--wk-grey-500)"></i>
+</button>
+</sc-if>
+</div>
+</sc-for>
+<span style="flex-shrink:0;display:inline-flex;align-items:center;gap:8px;padding-top:8px">
+<img src="assets/wolkskool-mark-primary.png" alt="" style="height:16px;width:auto;flex-shrink:0;filter:grayscale(1);opacity:.45">
+<span style="font:400 12px/18px var(--font-body);color:var(--wk-grey-400)">© 2026 Wolkskool</span>
+</span>
+</div>
+</sc-if>
+
+<sc-if value="{{ showInfo }}" hint-placeholder-val="{{ true }}">
+<div style="flex:1;min-width:0;box-sizing:border-box;background:{{ infoBg }};display:flex;flex-direction:column">
+
+<sc-if value="{{ isList }}" hint-placeholder-val="{{ true }}">
+<div style="flex-shrink:0;display:grid;grid-template-columns:{{ metricCols }};background:var(--wk-grey-200);gap:1px;box-shadow:0 1px 0 0 var(--wk-grey-200)">
+<sc-for list="{{ metrics }}" as="m" hint-placeholder-count="4">
+<div style="box-sizing:border-box;padding:{{ metricPad }};background:{{ infoBg }};display:flex;flex-direction:column;gap:12px">
+<span style="width:32px;height:32px;flex-shrink:0;border-radius:8px;background:{{ m.bg }};display:flex;align-items:center;justify-content:center">
+<i class="{{ m.icon }}" style="font-size:17px;color:{{ m.fg }}"></i>
+</span>
+<div style="display:flex;flex-direction:column">
+
+<span style="font:500 14px/20px var(--font-body);color:var(--wk-grey-600)">{{ m.label }}</span><span style="font:{{ metricVal }};color:var(--wk-grey-950)">{{ m.value }}</span>
+</div>
+</div>
+</sc-for>
+</div>
+
+<div style="flex:1;min-height:0;box-sizing:border-box;padding:{{ infoPad }};display:flex;flex-direction:column;gap:24px">
+<span style="font:500 14px/22px var(--font-body);color:var(--wk-grey-600);text-wrap:pretty">Hierdie reeks is ideaal vir enigeen wat hul Afrikaans wil verbeter. Ons dek grammatika, woordeskat en alledaagse gesprekke met praktiese oefeninge en interaktiewe lesse om jou selfvertroue in die taal te versterk. Jy sal ook idiome en kulturele nuanses verken om beter in formele en informele situasies te kommunikeer.</span>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ seriesTags }}" as="t" hint-placeholder-count="3">
+<span style="display:inline-flex;align-items:center;height:30px;padding:0 14px;border-radius:var(--radius-full);background:#fff;box-shadow:inset 0 0 0 1px var(--wk-grey-300);font:500 14px/20px var(--font-body);color:var(--wk-grey-700)">{{ t }}</span>
+</sc-for>
+</div>
+<span style="height:1px;background:var(--wk-grey-200);display:block"></span>
+<div style="display:grid;grid-template-columns:{{ metaCols }};gap:24px">
+<sc-for list="{{ meta }}" as="d" hint-placeholder-count="4">
+<div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+<span style="font:600 14px/20px var(--font-body);letter-spacing:.04em;text-transform:uppercase;color:var(--wk-grey-400)">{{ d.label }}</span>
+<span style="font:500 14px/20px var(--font-body);color:var(--wk-grey-600)">{{ d.value }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isEdit }}">
+<div style="flex:1;min-height:{{ listMaxH }};box-sizing:border-box;padding:{{ infoPadNow }};display:flex;flex-direction:{{ editDir }};align-items:stretch;gap:20px">
+<div style="flex:1;min-width:0;box-sizing:border-box;padding:20px;border-radius:16px;background:#fff;box-shadow:0px 1px 2px 0px rgba(16,24,40,0.06),inset 0 0 0 1px var(--wk-grey-200);display:flex;flex-direction:column;gap:16px">
+<span style="font:600 16px/24px var(--font-body);color:var(--wk-grey-950)">Voorkant</span>
+<div style="display:flex;gap:4px;padding:4px;border-radius:10px;background:var(--wk-grey-100)">
+<button onClick="{{ frontTeks }}" style="flex:1;min-height:36px;border:none;border-radius:7px;cursor:pointer;background:{{ frontTeksBg }};box-shadow:{{ frontTeksRing }};font:600 14px/20px var(--font-body);color:{{ frontTeksFg }}">Teks</button>
+<button onClick="{{ frontPrent }}" style="flex:1;min-height:36px;border:none;border-radius:7px;cursor:pointer;background:{{ frontPrentBg }};box-shadow:{{ frontPrentRing }};font:600 14px/20px var(--font-body);color:{{ frontPrentFg }}">Prent</button>
+</div>
+<sc-if value="{{ frontIsTeks }}" hint-placeholder-val="{{ true }}">
+<textarea value="{{ frontText }}" onChange="{{ onFront }}" placeholder="Voorbeeld voorkant" style="box-sizing:border-box;width:100%;height:{{ frontTextareaH }};resize:vertical;padding:14px;border:none;border-radius:12px;box-shadow:inset 0 0 0 1px var(--wk-grey-300);font:400 16px/24px var(--font-body);color:var(--wk-grey-900);outline:none"></textarea>
+</sc-if>
+<sc-if value="{{ frontIsPrent }}">
+<div style="box-sizing:border-box;min-height:150px;border-radius:12px;background:var(--wk-purple-100);border:2px dashed var(--wk-purple-400);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:20px;text-align:center">
+<span style="width:40px;height:40px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center">
+<i class="ph ph-cloud-arrow-up" style="font-size:20px;color:var(--wk-purple-600)"></i>
+</span>
+<span style="font:600 15px/22px var(--font-body);color:var(--wk-purple-700)">Klik om op te laai</span>
+<span style="font:400 13px/18px var(--font-body);color:var(--wk-grey-500)">SVG, PNG, JPG</span>
+</div>
+<input value="{{ frontImgDescVal }}" onChange="{{ onFrontImgDesc }}" placeholder="Beskrywing van prent (vir toeganklikheid)" style="box-sizing:border-box;width:100%;height:40px;padding:0 12px;border:none;border-radius:8px;box-shadow:inset 0 0 0 1px var(--wk-grey-300);font:400 14px/20px var(--font-body);color:var(--wk-grey-900);outline:none">
+</sc-if>
+<span style="align-self:flex-end;font:400 13px/18px var(--font-body);color:var(--wk-grey-400)">{{ frontCount }}</span>
+</div>
+<div style="flex:1;min-width:0;box-sizing:border-box;padding:20px;border-radius:16px;background:#fff;box-shadow:0px 1px 2px 0px rgba(16,24,40,0.06),inset 0 0 0 1px var(--wk-grey-200);display:flex;flex-direction:column;gap:16px">
+<span style="font:600 16px/24px var(--font-body);color:var(--wk-grey-950)">Agterkant</span>
+<div style="display:flex;gap:4px;padding:4px;border-radius:10px;background:var(--wk-grey-100)">
+<button onClick="{{ backTeks }}" style="flex:1;min-height:36px;border:none;border-radius:7px;cursor:pointer;background:{{ backTeksBg }};box-shadow:{{ backTeksRing }};font:600 14px/20px var(--font-body);color:{{ backTeksFg }}">Teks</button>
+<button onClick="{{ backPrent }}" style="flex:1;min-height:36px;border:none;border-radius:7px;cursor:pointer;background:{{ backPrentBg }};box-shadow:{{ backPrentRing }};font:600 14px/20px var(--font-body);color:{{ backPrentFg }}">Prent</button>
+</div>
+<sc-if value="{{ backIsTeks }}" hint-placeholder-val="{{ true }}">
+<textarea value="{{ backText }}" onChange="{{ onBack }}" placeholder="Voorbeeld agterkant" style="box-sizing:border-box;width:100%;height:{{ backTextareaH }};resize:vertical;padding:14px;border:none;border-radius:12px;box-shadow:inset 0 0 0 1px var(--wk-grey-300);font:400 16px/24px var(--font-body);color:var(--wk-grey-900);outline:none"></textarea>
+</sc-if>
+<sc-if value="{{ backIsPrent }}">
+<div style="box-sizing:border-box;min-height:150px;border-radius:12px;background:var(--wk-purple-100);border:2px dashed var(--wk-purple-400);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:20px;text-align:center">
+<span style="width:40px;height:40px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center">
+<i class="ph ph-cloud-arrow-up" style="font-size:20px;color:var(--wk-purple-600)"></i>
+</span>
+<span style="font:600 15px/22px var(--font-body);color:var(--wk-purple-700)">Klik om op te laai</span>
+<span style="font:400 13px/18px var(--font-body);color:var(--wk-grey-500)">SVG, PNG, JPG</span>
+</div>
+<input value="{{ backImgDescVal }}" onChange="{{ onBackImgDesc }}" placeholder="Beskrywing van prent (vir toeganklikheid)" style="box-sizing:border-box;width:100%;height:40px;padding:0 12px;border:none;border-radius:8px;box-shadow:inset 0 0 0 1px var(--wk-grey-300);font:400 14px/20px var(--font-body);color:var(--wk-grey-900);outline:none">
+</sc-if>
+<span style="align-self:flex-end;font:400 13px/18px var(--font-body);color:var(--wk-grey-400)">{{ backCount }}</span>
+</div>
+</div>
+<div style="position:sticky;bottom:0;z-index:20;flex-shrink:0;box-sizing:border-box;padding:{{ editFootPad }};background:#fff;box-shadow:0 -1px 0 0 var(--wk-grey-200);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
+<button onClick="{{ prevCard }}" aria-label="Vorige kaart" title="Vorige kaart" style="flex:0 0 auto;width:44px;height:44px;padding:0;border:none;border-radius:50%;cursor:pointer;background:#fff;box-shadow:inset 0 0 0 1px var(--wk-grey-300);display:flex;align-items:center;justify-content:center" style-hover="background:var(--wk-grey-50)">
+<i class="ph-bold ph-arrow-left" style="font-size:16px;color:var(--wk-grey-700)"></i>
+</button>
+<span style="flex:1;min-width:0;text-align:center;white-space:nowrap;font:500 15px/22px var(--font-body);color:var(--wk-grey-600)">{{ editCount }}</span>
+<button onClick="{{ nextCard }}" aria-label="Volgende kaart" title="Volgende kaart" style="flex:0 0 auto;margin-left:auto;width:44px;height:44px;padding:0;border:none;border-radius:50%;cursor:pointer;background:var(--wk-blue-600);display:flex;align-items:center;justify-content:center" style-hover="background:var(--wk-info-800)">
+<i class="ph-bold ph-arrow-right" style="font-size:16px;color:#fff"></i>
+</button>
+</div>
+</sc-if>
+
+</div>
+</sc-if>
+</div>
+
+<sc-if value="{{ showStickyCta }}">
+<div style="position:sticky;bottom:0;z-index:20;flex-shrink:0;box-sizing:border-box;padding:12px 16px;background:#fff;box-shadow:0 -1px 0 0 var(--wk-grey-200)">
+<button onClick="{{ enterFocus }}" style="box-sizing:border-box;width:100%;min-height:48px;border:none;border-radius:var(--radius-full);cursor:pointer;background:var(--wk-blue-600);display:flex;align-items:center;justify-content:center;gap:8px;font:600 16px/24px var(--font-body);color:#fff">
+<i class="ph-bold ph-play" style="font-size:16px"></i>Fokus reeks
+</button>
+</div>
+</sc-if>
+
+</sc-if>
+</main>
+</sc-if>
+
+</div>
+<sc-if value="{{ premiumOpen }}">
+<div onClick="{{ closePremium }}" style="position:absolute;inset:0;z-index:100;background:rgba(16,24,40,.45);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px">
+<div onClick="{{ stopProp }}" style="width:100%;max-width:380px;border-radius:20px;background:#fff;box-shadow:var(--shadow-2xl);overflow:hidden;display:flex;flex-direction:column;align-items:stretch;animation:wk-pop .3s cubic-bezier(.2,1.5,.4,1) both">
+<div style="box-sizing:border-box;padding:32px 28px 24px;background:linear-gradient(168deg,var(--wk-purple-600) 0%,var(--wk-purple-800) 100%);display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+<span style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.14);box-shadow:0 0 0 8px rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center">
+<i class="ph-bold ph-crown-simple" style="font-size:26px;color:#fff"></i>
+</span>
+<span style="font:600 20px/28px var(--font-display);color:#fff">Kry Wolkskool Premium</span>
+</div>
+<div style="box-sizing:border-box;padding:24px 28px 28px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center">
+<span style="font:400 15px/23px var(--font-body);color:var(--wk-grey-600)">Om jou eie flitskaartreekse te skep, het jy 'n Premium-intekening nodig.</span>
+<button onClick="{{ closePremium }}" style="width:100%;min-height:44px;border:none;border-radius:var(--radius-full);cursor:pointer;background:var(--wk-purple-600);font:600 15px/22px var(--font-body);color:#fff" style-hover="background:var(--wk-purple-700)">Opgradeer na Premium</button>
+<button onClick="{{ closePremium }}" style="width:100%;min-height:44px;border:none;border-radius:var(--radius-full);cursor:pointer;background:none;box-shadow:inset 0 0 0 1px var(--wk-grey-300);font:600 15px/22px var(--font-body);color:var(--wk-grey-700)" style-hover="background:var(--wk-grey-50)">Nie nou nie</button>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ deleteConfirmOpen }}">
+<div onClick="{{ closeDeleteConfirm }}" style="position:absolute;inset:0;z-index:100;background:rgba(16,24,40,.45);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px">
+<div onClick="{{ stopProp }}" style="width:100%;max-width:380px;border-radius:20px;background:#fff;box-shadow:var(--shadow-2xl);overflow:hidden;display:flex;flex-direction:column;align-items:stretch;animation:wk-pop .3s cubic-bezier(.2,1.5,.4,1) both">
+<div style="box-sizing:border-box;padding:32px 28px 24px;background:linear-gradient(168deg,var(--wk-cinnabar-600) 0%,var(--wk-cinnabar-800) 100%);display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+<span style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.14);box-shadow:0 0 0 8px rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center">
+<i class="ph-bold ph-trash" style="font-size:26px;color:#fff"></i>
+</span>
+<span style="font:600 13px/18px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--wk-cinnabar-200)">Kan nie ontdoen word nie</span>
+<span style="font:600 20px/28px var(--font-display);color:#fff">Verwyder {{ seriesTitle }}?</span>
+</div>
+<div style="box-sizing:border-box;padding:24px 28px 28px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center">
+<span style="font:400 15px/23px var(--font-body);color:var(--wk-grey-600)">Al die flitskaarte en vordering in hierdie reeks sal permanent verwyder word.</span>
+<button onClick="{{ confirmDeleteSeries }}" style="width:100%;min-height:44px;border:none;border-radius:var(--radius-full);cursor:pointer;background:var(--wk-cinnabar-600);font:600 15px/22px var(--font-body);color:#fff" style-hover="background:var(--wk-cinnabar-700)">Ja, verwyder reeks</button>
+<button onClick="{{ closeDeleteConfirm }}" style="width:100%;min-height:44px;border:none;border-radius:var(--radius-full);cursor:pointer;background:none;box-shadow:inset 0 0 0 1px var(--wk-grey-300);font:600 15px/22px var(--font-body);color:var(--wk-grey-700)" style-hover="background:var(--wk-grey-50)">Behou reeks</button>
+</div>
+</div>
+</div>
+</sc-if>
+</div>
+</div>
+</div>
+<dc-import name="AssistentFAB" hint-size="0px,0px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;screen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Alle reekse&quot;,&quot;Sien 'n reeks&quot;,&quot;Fokus 'n reeks&quot;,&quot;Wysig 'n reeks&quot;],&quot;default&quot;:&quot;Alle reekse&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Skerm&quot;},&quot;viewport&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;default&quot;:&quot;desktop&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Skerm&quot;},&quot;role&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Onderwyser&quot;,&quot;Leerder&quot;,&quot;Inhoud-eienaar&quot;],&quot;default&quot;:&quot;Onderwyser&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Rol&quot;}}">
+const NAV = [
+  { label: "Tuis", icon: "ph ph-house" },
+  { label: "Inhoud", icon: "ph ph-books", subs: ["Biblioteek", "Kursusse"] },
+  { label: "Vraagbank", icon: "ph ph-question", subs: ["Vrae", "Assesserings"] },
+  { label: "Eksterne Bronne", icon: "ph ph-link-simple" },
+  { label: "Flitsgids", icon: "ph ph-cards" },
+  { label: "Opsommings", icon: "ph ph-article" },
+  { label: "My Raadsale", icon: "ph ph-chats-circle" },
+  { label: "My Klasse", icon: "ph ph-chalkboard-teacher" },
+  { label: "Trofee Kamer", icon: "ph ph-trophy" },
+];
+const FOOT = [
+  { label: "Wolkskool Assistent", icon: "ph-bold ph-sparkle", badge: "Nuut" },
+  { label: "Hulp", icon: "ph ph-lifebuoy" },
+  { label: "My Profiel", icon: "ph ph-gear" },
+  { label: "My Notas", icon: "ph ph-note" },
+  { label: "My Kennisgewings", icon: "ph ph-bell", badge: "3" },
+];
+const CONTENT_AREAS = {
+  "Afrikaans Huistaal": ["Lees en Kyk", "Skryf en aanbied", "Taalstrukture"],
+  "Wiskunde": ["Getalle en bewerkings", "Patrone en algebra", "Meetkunde"],
+  "Natuurwetenskappe": ["Lewe en lewend", "Materie en stowwe", "Aarde en heelal"],
+  "Geskiedenis": ["Bronwerk", "Suid-Afrika", "Wêreldgeskiedenis"],
+  "Besigheidstudies": ["Besigheidsomgewing", "Besigheidsbedryf", "Besigheidsrolle"],
+};
+const SERIES = [
+  { title: "Brief en Poskaart Formate", grade: 4, subject: "Afrikaans Huistaal", area: "Skryf en aanbied", count: 9, pct: 45, updated: "18 Jul", fav: true, nuut: true, ageDays: 12, owner: "Olivia Rhye", author: "Olivia Rhye", status: "Gepubliseer" },
+  { title: "Breuke en Desimale", grade: 5, subject: "Wiskunde", area: "Getalle en bewerkings", count: 14, pct: 72, updated: "16 Jul", fav: false, ageDays: 64, owner: "Wolkskool", author: "Wolkskool", status: "Gepubliseer" },
+  { title: "Klanke en Lettergrepe", grade: 2, subject: "Afrikaans Huistaal", area: "Taalstrukture", count: 12, pct: 100, updated: "12 Jul", fav: true, ageDays: 96, newContent: true, owner: "Wolkskool", author: "Wolkskool", status: "Gepubliseer" },
+  { title: "Selle en Weefsels", grade: 8, subject: "Natuurwetenskappe", area: "Lewe en lewend", count: 18, pct: 30, updated: "9 Jul", fav: false, ageDays: 120, owner: "Olivia Rhye", author: "Olivia Rhye", status: "Gepubliseer" },
+  { title: "Suid-Afrikaanse Geskiedenis", grade: 10, subject: "Geskiedenis", area: "Suid-Afrika", count: 22, pct: 0, updated: "5 Jul", fav: false, ageDays: 8, nuut: true, owner: "Wolkskool", author: "Jaco Malan", status: "Konsep" },
+  { title: "Funksies en Grafieke", grade: 12, subject: "Wiskunde", area: "Patrone en algebra", count: 26, pct: 58, updated: "2 Jul", fav: true, ageDays: 210, owner: "Olivia Rhye", author: "Olivia Rhye", status: "Gepubliseer" },
+  { title: "Vorms en Patrone", grade: 1, subject: "Wiskunde", area: "Meetkunde", count: 8, pct: 100, updated: "28 Jun", fav: false, ageDays: 150, owner: "Wolkskool", author: "Wolkskool", verified: true, status: "Gepubliseer" },
+  { title: "Ekosisteme en Voedselkettings", grade: 7, subject: "Natuurwetenskappe", area: "Lewe en lewend", count: 16, pct: 62, updated: "24 Jun", fav: false, ageDays: 180, owner: "Olivia Rhye", author: "Olivia Rhye", status: "Gepubliseer" },
+  { title: "Sakebeginsels", grade: 11, subject: "Besigheidstudies", area: "Besigheidsbedryf", count: 20, pct: 0, updated: "20 Jun", fav: false, ageDays: 200, owner: "Olivia Rhye", author: "Olivia Rhye", status: "Konsep" },
+];
+const SUBJECT_ICON = {
+  "Wiskunde": "ph ph-math-operations",
+  "Afrikaans Huistaal": "ph ph-book-open-text",
+  "Natuurwetenskappe": "ph ph-flask",
+  "Geskiedenis": "ph ph-scroll",
+  "Besigheidstudies": "ph ph-briefcase",
+};
+function gradeToneDeep(g) {
+  if (g <= 3) return "var(--wk-purple-800)";
+  if (g <= 6) return "var(--wk-info-800)";
+  if (g <= 9) return "var(--wk-emerald-800)";
+  if (g <= 11) return "var(--wk-saffron-800)";
+  return "var(--wk-cinnabar-800)";
+}
+function gradeToneLight(g) {
+  if (g <= 3) return "var(--wk-purple-500)";
+  if (g <= 6) return "var(--wk-info-500)";
+  if (g <= 9) return "var(--wk-emerald-500)";
+  if (g <= 11) return "var(--wk-saffron-500)";
+  return "var(--wk-cinnabar-500)";
+}
+function gradeTone(g) {
+  if (g <= 3) return "var(--wk-purple-600)";
+  if (g <= 6) return "var(--wk-info-600)";
+  if (g <= 9) return "var(--wk-emerald-600)";
+  if (g <= 11) return "var(--wk-saffron-600)";
+  return "var(--wk-cinnabar-600)";
+}
+function gradeTone700(g) {
+  if (g <= 3) return "var(--wk-purple-700)";
+  if (g <= 6) return "var(--wk-info-700)";
+  if (g <= 9) return "var(--wk-emerald-700)";
+  if (g <= 11) return "var(--wk-saffron-700)";
+  return "var(--wk-cinnabar-700)";
+}
+function gradeTone300(g) {
+  if (g <= 3) return "var(--wk-purple-300)";
+  if (g <= 6) return "var(--wk-info-300)";
+  if (g <= 9) return "var(--wk-emerald-300)";
+  if (g <= 11) return "var(--wk-saffron-300)";
+  return "var(--wk-cinnabar-300)";
+}
+const CARDS = [
+  { front: "Selfstandige naamwoord", back: "'n Woord wat 'n persoon, plek, ding of gedagte benoem — soos brief, poskaart of adres. 'n Selfstandige naamwoord kan eiename (spesifieke name soos Kaapstad of Jan), soortname (algemene name soos stad of seun), sameltrekkende naamwoorde (groepe soos span of gehoor) en abstrakte naamwoorde (idees of gevoelens soos vreugde of vryheid) insluit. In Afrikaans word eiename altyd met 'n hoofletter geskryf, terwyl soortname slegs 'n hoofletter kry aan die begin van 'n sin. Dit is belangrik om selfstandige naamwoorde korrek te identifiseer wanneer 'n mens sinsontleding doen, aangesien dit dikwels die onderwerp of voorwerp van 'n sin vorm.", backList: ["Eiename — Kaapstad, Jan", "Soortname — stad, seun", "Abstrakte naamwoorde — vreugde, vryheid"], status: "hersien" },
+  { front: "Aandagstreep", back: "'n Lang streep wat 'n gedagte onderbreek of iets uitlig in 'n sin.", status: "hersien" },
+  { front: "Formele briefhoof (die adres en datum wat regs bo-aan 'n amptelike, formele brief geskryf word)", back: "Die skrywer se volledige adres word reël vir reël geskryf, gevolg deur die datum waarop die brief opgestel is — altyd in die boonste regterkantste hoek van 'n formele brief geplaas, sonder leestekens aan die einde van elke reël.", status: "verstaan" },
+  { front: "Aanhef", back: "Die groet waarmee 'n brief begin, soos Geagte Meneer of Liewe Ouma.", status: "verstaan" },
+  { front: "Slotgroet", back: "Die afsluiting van 'n brief — Die uwe by formeel, Groete by informeel.", status: "verstaan" },
+  { front: "Poskaart-uitleg", back: "Kort boodskap links, adres regs, seël in die regter boonste hoek.", status: "nuut", backType: "prent", backImgDesc: "Voorbeeld van 'n uitgemerkte poskaart-uitleg" },
+  { front: "Register", back: "Die vlak van formaliteit wat by die leser en die doel van die brief pas.", status: "hersien" },
+  { front: "Herken die briefformaat", back: "Formele brief-uitleg", status: "nuut", frontType: "prent", backType: "prent", frontImgDesc: "Voorbeeld van 'n formele brief", backImgDesc: "Dieselfde brief met die dele gemerk" },
+  { front: "Sinsvlakwerk", back: "Om sinne te bou en te verbind sodat die boodskap vloei en duidelik lees.", status: "verstaan" },
+];
+const DECKS = [
+  CARDS,
+  [
+    { front: "Breuk", back: "'n Deel van 'n geheel — die noemer sê in hoeveel dele, die teller hoeveel jy het.", status: "verstaan" },
+    { front: "Teller", back: "Die getal bo die streep: hoeveel dele van die geheel jy het.", status: "verstaan" },
+    { front: "Noemer", back: "Die getal onder die streep: in hoeveel gelyke dele die geheel verdeel is.", status: "verstaan" },
+    { front: "Gelykwaardige breuke", back: "Breuke wat dieselfde waarde het, soos 1/2 en 2/4.", status: "verstaan" },
+    { front: "Desimale komma", back: "Die komma wat heelgetalle van tiendes en honderdstes skei, soos 3,25.", status: "hersien" },
+    { front: "Breuk na desimaal", back: "Deel die teller deur die noemer: 3/4 word 0,75.", status: "hersien" },
+  ],
+  [
+    { front: "Lettergreep", back: "'n Klankgroep met een vokaalklank, soos son-be-sie.", status: "verstaan" },
+    { front: "Klinker", back: "Die oop klanke a, e, i, o en u.", status: "verstaan" },
+    { front: "Konsonant", back: "Die klanke wat met die tong, lippe of tande gevorm word, soos b, k en s.", status: "verstaan" },
+    { front: "Tweeklank", back: "Twee klinkers wat saam een klank vorm, soos ui in huis.", status: "verstaan" },
+    { front: "Rymwoorde", back: "Woorde met dieselfde eindklank, soos kat en mat.", status: "verstaan" },
+  ],
+  [
+    { front: "Sel", back: "Die kleinste eenheid van lewe — alle organismes bestaan uit selle.", status: "verstaan" },
+    { front: "Selmembraan", back: "Die buitenste laag wat beheer wat in en uit die sel beweeg.", status: "hersien" },
+    { front: "Kern", back: "Die beheersentrum van die sel wat die DNA bevat.", status: "hersien" },
+    { front: "Chloroplas", back: "Die plantselorganel waar fotosintese plaasvind.", status: "hersien" },
+    { front: "Weefsel", back: "'n Groep soortgelyke selle wat saam een funksie verrig.", status: "hersien" },
+    { front: "Diffusie", back: "Beweging van stowwe van hoë na lae konsentrasie deur 'n membraan.", status: "hersien" },
+  ],
+  [
+    { front: "Apartheid", back: "Die stelsel van wetlike rasseskeiding in Suid-Afrika tussen 1948 en 1994.", status: "hersien" },
+    { front: "Mineraalrevolusie", back: "Die diamant- en goudontdekkings wat die ekonomie en migrasie omgekeer het.", status: "hersien" },
+    { front: "Bron", back: "Bewysmateriaal uit die verlede — primêr of sekondêr.", status: "hersien" },
+    { front: "Vooroordeel", back: "Wanneer 'n bron een kant eensydig voorstel.", status: "hersien" },
+    { front: "Sharpeville", back: "Die 1960-gebeure wat internasionale druk teen apartheid laat toeneem het.", status: "hersien" },
+    { front: "Unie van Suid-Afrika", back: "Die 1910-samesmelting van vier kolonies in een staat.", status: "hersien" },
+  ],
+  [
+    { front: "Funksie", back: "'n Reël wat elke insetwaarde aan presies een uitsetwaarde koppel.", status: "verstaan" },
+    { front: "Domein", back: "Alle moontlike x-waardes van 'n funksie.", status: "verstaan" },
+    { front: "Bereik", back: "Alle moontlike y-waardes van 'n funksie.", status: "verstaan" },
+    { front: "Asimptoot", back: "'n Lyn waarna die grafiek nader maar nooit raak nie.", status: "hersien" },
+    { front: "Draaipunt", back: "Die punt waar 'n parabool van rigting verander.", status: "hersien" },
+    { front: "Inverse funksie", back: "Die funksie wat die inset en uitset omruil — 'n weerkaatsing om y = x.", status: "hersien" },
+  ],
+  [
+    { front: "Sirkel", back: "'n Ronde vorm sonder hoeke of sye.", status: "verstaan" },
+    { front: "Driehoek", back: "'n Vorm met drie sye en drie hoeke.", status: "verstaan" },
+    { front: "Vierkant", back: "'n Vorm met vier gelyke sye.", status: "verstaan" },
+    { front: "Patroon", back: "Vorms of kleure wat in dieselfde orde herhaal.", status: "verstaan" },
+  ],
+  [
+    { front: "Ekosisteem", back: "Al die lewende en nie-lewende dele van 'n omgewing wat saam werk.", status: "verstaan" },
+    { front: "Voedselketting", back: "Die pad wat energie van plant na dier tot verbruiker volg.", status: "verstaan" },
+    { front: "Produsent", back: "'n Plant wat sy eie kos deur fotosintese maak.", status: "verstaan" },
+    { front: "Verbruiker", back: "'n Dier wat ander organismes eet vir energie.", status: "hersien" },
+    { front: "Ontbinder", back: "Swamme en bakterieë wat dooie materiaal afbreek.", status: "hersien" },
+  ],
+  [
+    { front: "Wins", back: "Inkomste minus uitgawes — wat oorbly nadat alle koste betaal is.", status: "hersien" },
+    { front: "Aanbod en vraag", back: "Die verhouding tussen wat beskikbaar is en wat kopers wil hê.", status: "hersien" },
+    { front: "Kontrak", back: "'n Wetlik bindende ooreenkoms tussen twee of meer partye.", status: "hersien" },
+    { front: "Kontantvloei", back: "Die geld wat in en uit 'n besigheid beweeg.", status: "hersien" },
+    { front: "MIV/vigs in die werkplek", back: "Werkgewers moet beleid hê wat regte beskerm en diskriminasie verhoed.", status: "hersien" },
+  ],
+];
+function deckPct(d) { return Math.round((d.filter(c => c.status === "verstaan").length / d.length) * 100); }
+
+const STATUS = {
+  hersien: { tag: "Hersien", bg: "var(--warning-600)", fg: "#fff", ring: "inset 0 0 0 1px var(--wk-saffron-300)" },
+  verstaan: { tag: "Verstaan", bg: "var(--wk-emerald-600)", fg: "#fff", ring: "inset 0 0 0 1px var(--wk-emerald-200)" },
+
+};
+
+const SCREENS = {
+  "Alle reekse": "oorsig",
+  "Sien 'n reeks": "lys",
+  "Fokus 'n reeks": "fokus",
+  "Wysig 'n reeks": "wysig",
+};
+
+class Component extends DCLogic {
+  state = { nav: "Flitsgids", open: null, expanded: null, menu: false, mode: null, pick: 0, query: "", browse: "Alle reekse", grade: 0, subject: "Alle vakke", sort: "Laas gewysig", dd: null, headerHidden: false, area: null, openSubj: null, sheet: false, sheetDd: null, sortSheet: false, rowMenu: null, w: 1440, favs: {}, card: 0, side: "voor", panel: "kaarte", front: "Teks", back: "Teks", flip: {}, drag: null, over: null, picked: {}, decks: {}, ctrlViewport: null, ctrlRole: null, stripCollapsed: false };
+
+  componentDidUpdate(prev) {
+    if (prev.screen !== this.props.screen) {
+      this.setState({ mode: SCREENS[this.props.screen] || "oorsig", card: 0, side: "voor", flip: {}, picked: {}, panel: "kaarte" });
+    }
+    const locked = this.state.sheet === true || this.state.sortSheet === true;
+    document.body.style.overflow = locked ? "hidden" : "";
+  }
+
+  componentDidMount() {
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    this.onResize();
+    window.addEventListener("resize", this.onResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.onResize);
+    document.body.style.overflow = "";
+  }
+
+  vp() { return this.state.ctrlViewport || this.props.viewport || "desktop"; }
+
+  toggleStrip = () => this.setState(s => ({ stripCollapsed: !s.stripCollapsed }));
+  pickScreen = (v) => () => this.setState({ mode: SCREENS[v] || "oorsig", card: 0, side: "voor", flip: {}, picked: {}, panel: "kaarte" });
+  pickVp = (v) => () => this.setState({ ctrlViewport: v });
+  pickRole = (v) => () => this.setState({ ctrlRole: v });
+
+  isOpenSb() {
+    if (this.vp() === "tablet") return this.state.open ?? false;
+    return this.state.open ?? true;
+  }
+
+  deck() {
+    const d = this.state.decks || {};
+    return d[this.state.pick] || DECKS[this.state.pick] || DECKS[0];
+  }
+
+  hugH(text) {
+    const t = text || "";
+    const lines = t.split("\n").length;
+    const wrapped = Math.ceil(t.length / 40);
+    const rows = Math.max(3, lines, wrapped);
+    return Math.min(280, rows * 25 + 30) + "px";
+  }
+
+  setDeck(next, extra) {
+    const d = Object.assign({}, this.state.decks);
+    d[this.state.pick] = next;
+    this.setState(Object.assign({ decks: d }, extra || {}));
+  }
+
+  setCard(n) {
+    const list = this.deck();
+    const i = (n + list.length) % list.length;
+    this.setState({ card: i, side: "voor" });
+  }
+
+  addCardNow(n) {
+    const next = this.deck().slice();
+    for (let i = 0; i < n; i++) {
+      next.push({ front: "Nuwe kaart", back: "", status: "nuut", frontType: this.state.front === "Prent" ? "prent" : "teks", backType: this.state.back === "Prent" ? "prent" : "teks" });
+    }
+    this.setDeck(next, { card: next.length - 1 });
+  }
+
+  onStageScroll(e) {
+    const top = e.target.scrollTop;
+    const last = this.lastScrollTop || 0;
+    this.lastScrollTop = top;
+    if (!this.isMobileEditNow) return;
+    if (top - last > 4 && top > 40) { if (!this.state.headerHidden) this.setState({ headerHidden: true }); }
+    else if (last - top > 4 || top < 10) { if (this.state.headerHidden) this.setState({ headerHidden: false }); }
+  }
+
+  moveCard(from, to) {
+    if (from === null || from === undefined || from === to) { this.setState({ drag: null, over: null }); return; }
+    const next = this.deck().slice();
+    const [row] = next.splice(from, 1);
+    next.splice(to, 0, row);
+    const card = this.state.card === from ? to : this.state.card;
+    this.setDeck(next, { card: card, drag: null, over: null, flip: {} });
+  }
+
+  setSide(key, value) {
+    const next = this.deck().slice();
+    next[this.state.card] = Object.assign({}, next[this.state.card], { [key]: value });
+    this.setDeck(next);
+  }
+
+  mark(status) {
+    const list = this.deck().slice();
+    list[this.state.card] = Object.assign({}, list[this.state.card], { status: status });
+    this.setDeck(list);
+    this.setCard(this.state.card + 1);
+  }
+
+  renderVals() {
+    const vp = this.vp();
+    const stripCollapsed = this.state.stripCollapsed === true;
+    const SCREEN_OPTS = Object.keys(SCREENS);
+    const screenOptions = SCREEN_OPTS.map(v => ({ value: v, label: v }));
+    const curScreenLabel = SCREEN_OPTS.filter(k => SCREENS[k] === (this.state.mode || SCREENS[this.props.screen] || "oorsig"))[0] || this.props.screen || SCREEN_OPTS[0];
+    const ROLE_OPTS = ["Onderwyser", "Leerder", "Inhoud-eienaar"];
+    const roleNowForStrip = this.state.ctrlRole || this.props.role || "Onderwyser";
+    const roleItems = ROLE_OPTS.map((val, i) => {
+      const active = roleNowForStrip === val;
+      const br = i < ROLE_OPTS.length - 1 ? "border-right:1px solid rgba(13,13,13,.08);" : "";
+      return { label: val, onClick: this.pickRole(val), style: "padding:4px 10px;font-size:12px;font-family:inherit;border:none;white-space:nowrap;background:" + (active ? "rgba(19,91,255,.07)" : "transparent") + ";color:" + (active ? "#135BFF" : "rgba(13,13,13,.55)") + ";border-radius:" + (active ? "4px" : "0") + ";cursor:pointer;transition:color .12s ease,background .12s ease;" + br };
+    });
+    const VP_OPTS = ["desktop", "tablet", "mobile"];
+    const vpItems = VP_OPTS.map((val, i) => {
+      const active = vp === val;
+      const br = i < VP_OPTS.length - 1 ? "border-right:1px solid rgba(13,13,13,.08);" : "";
+      return { label: val, onClick: this.pickVp(val), style: "padding:4px 10px;font-size:12px;font-family:inherit;border:none;white-space:nowrap;background:" + (active ? "rgba(19,91,255,.07)" : "transparent") + ";color:" + (active ? "#135BFF" : "rgba(13,13,13,.55)") + ";border-radius:" + (active ? "4px" : "0") + ";cursor:pointer;transition:color .12s ease,background .12s ease;" + br };
+    });
+    const stageHFinal = vp === "desktop" ? "calc(100vh - " + (stripCollapsed ? "0px" : "40px") + ")" : null;
+    const open = this.isOpenSb();
+    const V = {
+      desktop: {
+        pageBg: "var(--wk-grey-50)", rootPad: "0px", stageW: "100%", stageH: "100vh", stageRadius: "0px", stageRing: "none", stageScroll: "auto", stageClipX: "visible",
+        asideH: "100vh", showSidebar: true, isMobileVp: false, focusMinH: "100vh",
+        heroPad: "44px 40px 40px", heroDir: "row", heroAlign: "flex-end", heroGap: "32px", heroTextGap: "14px", heroMetaGap: "24px",
+        heroH1: "600 38px/46px var(--font-display)", heroStar: "26px", heroMeta: "500 18px/28px var(--font-body)", heroTrackMin: "min(220px,100%)",
+        heroActW: "auto", heroCtaGrow: "0 0 auto", showNuut: true,
+        bodyDir: "row", listW: "clamp(288px,32%,356px)", listWEdit: "clamp(340px,36%,412px)", listMaxH: "calc(100vh - 200px)", listPad: "24px", listRing: "inset -1px 0 0 0 var(--wk-grey-200)",
+        cardMinH: "180px", cardPad: "28px 24px", cardFont: "600 24px/32px var(--font-display)",
+        metricCols: "repeat(3,minmax(0,1fr))", metricPad: "24px", metricGap: "0px", metricVal: "600 30px/38px var(--font-display)",
+        infoPad: "32px", editPad: "20px", infoBg: "var(--wk-grey-100)", metaCols: "repeat(2,minmax(0,1fr))", editDir: "row", editFootPad: "16px 20px",
+        secPad: "16px 32px", pgHeadPad: "28px 40px", pgHeadDir: "row", pgHeadAlign: "flex-end", pgHeadGap: "24px", pgTitleMin: "240px", pgTitleFont: "600 30px/38px var(--font-display)", pgActW: "auto", searchW: "420px", browseDir: "row", railMaxH: "calc(100vh - 108px)", browsePad: "24px", browseGap: "20px", browseHeadFont: "600 20px/30px var(--font-display)", pgHeadTop: "0px", overlayPos: "fixed", compactHead: false, mainMinH: "100vh", footPad: "20px 24px", browseMinH: "auto", thumbW: "152px", thumbRadius: "16px 0 0 16px", rowContentRadius: "0 16px 16px 0", thumbMinH: "152px", thumbAspect: "1", thumbAlign: "stretch", thumbIcon: "56px", rowPad: "24px", rowTitleFont: "600 20px/30px var(--font-display)", trackW: "88px", rowContentMin: "260px", narrowAt: 1140, stackRows: false, showPanelSwitch: false, showStickyCta: false,
+        focusBarPad: "16px 24px", focusBarGap: "20px", focusBarWrap: "nowrap", focusTitleMax: "340px", focusTitleFlex: "0 0 auto", focusTitleFont: "600 28px/36px var(--font-display)",
+        focusTrackMin: "min(220px,100%)", focusStagePad: "24px", focusStageGap: "24px", focusCardPad: "40px", focusCardFont: "600 34px/42px var(--font-display)", backBodyFont: "400 26px/38px var(--font-body)", cardAspect: "2.4/1",
+        showPeek: true, focusFootPad: "16px 32px", focusFootDir: "row", focusFootGap: "24px", markOrder: "2", markW: "100%", markMargin: "0", navBtnW: "auto", prevOrder: "1", nextOrder: "3",
+      },
+      tablet: {
+        pageBg: "var(--wk-grey-200)", rootPad: "48px 24px", stageW: "834px", stageH: "1112px", stageRadius: "34px",
+        stageRing: "0 0 0 1px rgba(0,0,0,.10),var(--shadow-2xl)", stageScroll: "auto", stageClipX: "hidden",
+        asideH: "1112px", showSidebar: true, isMobileVp: false, focusMinH: "1112px",
+        heroPad: "32px 28px 30px", heroDir: "column", heroAlign: "stretch", heroGap: "20px", heroTextGap: "12px", heroMetaGap: "16px",
+        heroH1: "600 30px/38px var(--font-display)", heroStar: "22px", heroMeta: "500 16px/24px var(--font-body)", heroTrackMin: "min(180px,100%)",
+        heroActW: "auto", heroCtaGrow: "0 0 auto", showNuut: true,
+        bodyDir: "row", listW: "clamp(260px,36%,300px)", listWEdit: "clamp(300px,40%,340px)", listMaxH: "none", listPad: "20px", listRing: "inset -1px 0 0 0 var(--wk-grey-200)",
+        cardMinH: "168px", cardPad: "24px 20px", cardFont: "600 21px/28px var(--font-display)",
+        metricCols: "repeat(3,minmax(0,1fr))", metricPad: "20px", metricGap: "0px", metricVal: "600 26px/34px var(--font-display)",
+        infoPad: "24px", editPad: "16px", infoBg: "var(--wk-grey-100)", metaCols: "repeat(2,minmax(0,1fr))", editDir: "column", editFootPad: "14px 16px",
+        secPad: "14px 24px", pgHeadPad: "24px 28px", pgHeadDir: "row", pgHeadAlign: "center", pgHeadGap: "16px", pgTitleMin: "0px", pgTitleFont: "600 26px/34px var(--font-display)", pgActW: "auto", searchW: "320px", browseDir: "row", railMaxH: "none", browsePad: "20px", browseGap: "16px", browseHeadFont: "600 18px/26px var(--font-display)", pgHeadTop: "0px", overlayPos: "absolute", compactHead: true, mainMinH: "100%", footPad: "20px 20px", browseMinH: "auto", thumbW: "100%", thumbRadius: "16px 16px 0 0", rowContentRadius: "0 0 16px 16px", thumbMinH: "92px", thumbAspect: "auto", thumbAlign: "stretch", thumbIcon: "40px", rowPad: "20px", rowTitleFont: "600 18px/26px var(--font-display)", trackW: "100%", rowContentMin: "100%", narrowAt: 0, stackRows: true, showPanelSwitch: false, showStickyCta: false,
+        focusBarPad: "14px 20px", focusBarGap: "16px", focusBarWrap: "wrap", focusTitleMax: "260px", focusTitleFlex: "0 0 auto", focusTitleFont: "600 24px/32px var(--font-display)",
+        focusTrackMin: "min(160px,100%)", focusStagePad: "28px", focusStageGap: "16px", focusCardPad: "32px", focusCardFont: "600 32px/40px var(--font-display)", backBodyFont: "400 24px/34px var(--font-body)", cardAspect: "4/3",
+        showPeek: true, focusFootPad: "14px 24px", focusFootDir: "row", focusFootGap: "16px", markOrder: "2", markW: "auto", markMargin: "0 auto", navBtnW: "auto", prevOrder: "1", nextOrder: "3",
+      },
+      mobile: {
+        pageBg: "var(--wk-grey-200)", rootPad: "48px 24px", stageW: "390px", stageH: "844px", stageRadius: "38px",
+        stageRing: "0 0 0 1px rgba(0,0,0,.10),var(--shadow-2xl)", stageScroll: "auto", stageClipX: "hidden",
+        asideH: "844px", showSidebar: false, isMobileVp: true, focusMinH: "844px",
+        heroPad: "22px 20px 26px", heroDir: "column", heroAlign: "stretch", heroGap: "18px", heroTextGap: "10px", heroMetaGap: "12px",
+        heroH1: "600 24px/32px var(--font-display)", heroStar: "20px", heroMeta: "500 15px/22px var(--font-body)", heroTrackMin: "100%",
+        heroActW: "100%", heroCtaGrow: "1 1 auto", showNuut: false,
+        bodyDir: "column", listW: "100%", listWEdit: "100%", listMaxH: "none", listPad: "16px", listRing: "none",
+        cardMinH: "164px", cardPad: "24px 18px", cardFont: "600 21px/28px var(--font-display)",
+        metricCols: "1fr", metricPad: "16px", metricGap: "10px", metricVal: "600 24px/32px var(--font-display)",
+        infoPad: "16px", editPad: "16px", infoBg: "var(--wk-grey-100)", metaCols: "1fr", editDir: "column", editFootPad: "12px 16px",
+        secPad: "12px 16px", pgHeadPad: "16px", pgHeadDir: "column", pgHeadAlign: "stretch", pgHeadGap: "14px", pgTitleMin: "0px", pgTitleFont: "600 24px/32px var(--font-display)", pgActW: "100%", searchW: "auto", browseDir: "column", railMaxH: "none", browsePad: "16px 16px 28px", browseGap: "14px", browseHeadFont: "600 17px/25px var(--font-display)", pgHeadTop: "64px", overlayPos: "absolute", compactHead: true, mainMinH: "100%", footPad: "16px 20px", browseMinH: "auto", thumbW: "100%", thumbRadius: "16px 16px 0 0", rowContentRadius: "0 0 16px 16px", thumbMinH: "84px", thumbAspect: "auto", thumbAlign: "stretch", thumbIcon: "38px", rowPad: "16px", rowTitleFont: "600 17px/25px var(--font-display)", trackW: "56px", rowContentMin: "100%", narrowAt: 99999, stackRows: true, showPanelSwitch: true, showStickyCta: true,
+        focusBarPad: "12px 16px", focusBarGap: "12px", focusBarWrap: "wrap", focusTitleMax: "100%", focusTitleFlex: "1 0 100%", focusTitleFont: "600 24px/32px var(--font-display)",
+        focusTrackMin: "100%", focusStagePad: "16px", focusStageGap: "0px", focusCardPad: "24px 16px", focusCardFont: "600 24px/32px var(--font-display)", backBodyFont: "400 17px/26px var(--font-body)", cardAspect: "3/4",
+        showPeek: false, focusFootPad: "12px 16px", focusFootDir: "column", focusFootGap: "10px", markOrder: "1", markW: "100%", markMargin: "0", navBtnW: "100%", prevOrder: "3", nextOrder: "2",
+      },
+    }[vp];
+
+    const list = this.deck();
+    const cur = list[this.state.card] || list[0];
+    const mode = this.state.mode || SCREENS[this.props.screen] || "oorsig";
+    const isEdit = mode === "wysig";
+    this.isMobileEditNow = V.isMobileVp && isEdit;
+    const isFocus = mode === "fokus";
+    const isList = mode === "lys";
+    const known = list.filter(c => c.status === "verstaan").length;
+    const review = list.filter(c => c.status === "hersien").length;
+    const pct = Math.round((known / list.length) * 100) + "%";
+    const flip = this.state.flip || {};
+    const favs = this.state.favs || {};
+    const decks = this.state.decks || {};
+    const seriesAll = SERIES.map((s, i) => {
+      const d = decks[i] || DECKS[i] || DECKS[0];
+      return Object.assign({}, s, { fav: favs[i] === undefined ? s.fav : favs[i], idx: i, count: d.length, pct: deckPct(d) });
+    });
+    const cur0 = seriesAll[this.state.pick] || seriesAll[0];
+    const q = (this.state.query || "").trim().toLowerCase();
+    const bf = this.state.browse || "Alle reekse";
+    const gradeSel = this.state.grade || 0;
+    const subjSel = this.state.subject || "Alle vakke";
+    const sortBy = this.state.sort || "Laas gewysig";
+    const hitStatus = (s) => bf === "Alle reekse" ? true
+      : bf === "Gunstelinge" ? s.fav
+      : bf === "Deur my geskep" ? s.owner === "Olivia Rhye"
+      : bf === "Benodig hersiening" ? s.pct < 100
+      : bf === "Aan die gang" ? (s.pct > 0 && s.pct < 100)
+      : bf === "Onvolledig" ? s.pct < 100
+      : bf === "Voltooi" ? s.pct === 100
+      : s.status === bf;
+    const base = seriesAll.filter(s => {
+      const hitQ = !q || (s.title + " " + s.subject + " Graad " + s.grade).toLowerCase().indexOf(q) > -1;
+      return hitQ && hitStatus(s) && (!gradeSel || s.grade === gradeSel);
+    });
+    const areaSel = this.state.area || null;
+    const shown = base.filter(s => (subjSel === "Alle vakke" || s.subject === subjSel) && (!areaSel || s.area === areaSel)).sort((a, b) => {
+      if (!!a.verified !== !!b.verified) return a.verified ? -1 : 1;
+      if (sortBy === "Naam") return a.title.localeCompare(b.title);
+      if (sortBy === "Vordering") return b.pct - a.pct;
+      return a.idx - b.idx;
+    });
+    const narrow = (this.state.w || 1440) < (V.narrowAt || 0);
+    const role = this.state.ctrlRole || this.props.role || "Onderwyser";
+    const teacher = role === "Onderwyser";
+    const owner = role === "Inhoud-eienaar";
+    const audienceSel = this.state.audience || "Leerders";
+    const STATUS_LIST = (teacher || owner)
+      ? [{ label: "Alle reekse", value: "Alle reekse" }, { label: "Konsepte", value: "Konsep" }, { label: "Deur my geskep", value: "Deur my geskep" }]
+      : [{ label: "Alle reekse", value: "Alle reekse" }, { label: "Benodig hersiening", value: "Benodig hersiening" }, { label: "Gunstelinge", value: "Gunstelinge" }, { label: "Deur my geskep", value: "Deur my geskep" }];
+    const seriesTag = (() => {
+      const row = SERIES[this.state.pick] || SERIES[0];
+      const livePct = deckPct(this.deck());
+      if (owner && this.state.seriesActive === false) return { t: "Onaktief", bg: "var(--wk-grey-600)" };
+      if ((teacher || owner) && row.status === "Konsep") return { t: "Konsep", bg: "var(--wk-purple-600)" };
+      if ((row.ageDays || 999) <= 30) return { t: "Nuut", bg: "var(--info-500)" };
+      if (livePct === 100 && row.newContent) return { t: "Nuwe Inhoud", bg: "var(--wk-purple-700)" };
+      if (livePct === 100) return { t: "Voltooi", bg: "var(--success-600)" };
+      return null;
+    })();
+    const subjectNames = [];
+    seriesAll.forEach(s => { if (subjectNames.indexOf(s.subject) < 0) subjectNames.push(s.subject); });
+    subjectNames.sort();
+    if (audienceSel === "Onderwysers") subjectNames.push("Algemeen");
+    const picked = this.state.picked || {};
+    const pickedN = Object.keys(picked).filter(k => picked[k]).length;
+    const drag = this.state.drag ?? null;
+    const over = this.state.over ?? null;
+    const frontFont = isEdit ? "600 17px/24px var(--font-display)" : V.cardFont;
+    const backFont = isEdit ? "400 14px/21px var(--font-body)" : "400 15px/23px var(--font-body)";
+    const showingCards = !V.showPanelSwitch || this.state.panel === "kaarte";
+    const activeNav = this.state.nav;
+    const sideVoor = this.state.side === "voor";
+    const seg = (on) => ({
+      bg: on ? "#fff" : "transparent",
+      fg: on ? "var(--wk-blue-700)" : "var(--wk-grey-600)",
+      ring: on ? "0px 1px 2px 0px rgba(16,24,40,0.06)" : "none",
+    });
+    const curFrontType = cur.frontType || "teks";
+    const curBackType = cur.backType || "teks";
+    const fT = seg(curFrontType === "teks"), fP = seg(curFrontType === "prent");
+    const bT = seg(curBackType === "teks"), bP = seg(curBackType === "prent");
+
+    return Object.assign({}, V, {
+      isOpen: open, isClosed: !open,
+      sbW: open ? "312px" : "92px",
+      asideFlowW: vp === "tablet" ? "92px" : (open ? "312px" : "92px"),
+      sbZ: vp === "tablet" && open ? 40 : 20,
+      showRailBackdrop: vp === "tablet" && open,
+      closeSb: () => this.setState({ open: false }),
+      avatarRowJustify: open ? "flex-start" : "center",
+      sbToggleIcon: open ? "ph-bold ph-caret-double-left" : "ph-bold ph-caret-double-right",
+      sbToggleLabel: open ? "Versteek die kieslys" : "Wys die kieslys",
+      sbToggleBg: open ? "none" : "rgba(255,255,255,.10)",
+      sbToggleRing: open ? "none" : "inset 0 0 0 1px rgba(255,255,255,.22)",
+      headPad: open ? "0 16px 0 24px" : "0 16px",
+      headDir: open ? "row" : "column",
+      headJustify: open ? "space-between" : "center",
+      headGap: open ? "12px" : "14px",
+      toggleSb: () => this.setState({ open: !open }),
+      points: this.props.points ?? 130,
+      showSidebar: V.showSidebar && !isFocus,
+      showPage: !isFocus && !(V.isMobileVp && this.state.menu === true),
+      showMobileMenu: !isFocus && V.isMobileVp && this.state.menu === true,
+      openMenu: () => this.setState({ menu: true, expanded: null }),
+      closeMenu: () => this.setState({ menu: false, expanded: null }),
+      onStageScroll: (e) => this.onStageScroll(e),
+      editHeaderTransform: (V.isMobileVp && isEdit && this.state.headerHidden) ? "translateY(-100%)" : "translateY(0)",
+      mainMinH: "0px",
+      browseMinH: "auto",
+      pgHeadTop: V.isMobileVp ? "74px" : "0px",
+      showPgTitle: !V.isMobileVp,
+      drawerUser: "Marli Nel", drawerRole: "Graad 12 · Hoërskool Wolkberg", drawerInitials: "MN",
+      navItems: NAV.map(it => {
+        const now = it.label === activeNav || (it.subs || []).indexOf(activeNav) > -1;
+        const expanded = this.state.expanded === it.label;
+        return {
+          label: it.label, icon: it.icon, badge: it.badge,
+          go: () => it.subs ? this.setState({ expanded: expanded ? null : it.label }) : this.setState({ nav: it.label, expanded: null, menu: false }),
+          bg: now ? "rgba(255,255,255,.14)" : "transparent",
+          fg: now ? "#fff" : "rgba(255,255,255,.42)",
+          justify: open ? "flex-start" : "center",
+          showLabel: open, showBadge: open && !!it.badge, showBadgeM: !!it.badge,
+          showCaret: open && !!it.subs,
+          caretIcon: expanded ? "ph ph-caret-up" : "ph ph-caret-down",
+          caretIconM: expanded ? "ph-bold ph-caret-up" : "ph-bold ph-caret-down",
+          showSubs: open && !!it.subs && expanded,
+          showSubsM: !!it.subs && expanded,
+          rail: now ? "#fff" : "transparent",
+          fontM: now ? "600 16px/24px var(--font-body)" : "500 16px/24px var(--font-body)",
+          hasSubs: !!it.subs,
+          subs: (it.subs || []).map(s => {
+            const on = s === activeNav;
+            return {
+              label: s, go: () => this.setState({ nav: s, menu: false }),
+              bg: on ? "rgba(255,255,255,.08)" : "transparent",
+              fg: on ? "#fff" : "rgba(255,255,255,.40)",
+              dot: on ? "#fff" : "rgba(255,255,255,.26)",
+            };
+          }),
+        };
+      }),
+      footItems: FOOT.map(it => ({
+        label: it.label, icon: it.icon, badge: it.badge,
+        justify: open ? "flex-start" : "center",
+        showLabel: open, showBadge: open && !!it.badge, showBadgeM: !!it.badge,
+      })),
+
+      isTeacher: teacher,
+      isOwner: owner,
+      canManageSeries: teacher || owner,
+      goEditSeries: () => this.setState({ mode: "wysig", panel: "kaarte" }),
+      showProgressTags: !owner,
+      createGo: role === "Leerder" ? () => this.setState({ premiumOpen: true }) : undefined,
+      createOpacity: role === "Leerder" ? ".55" : "1",
+      closePremium: () => this.setState({ premiumOpen: false }),
+      stopProp: (e) => e.stopPropagation(),
+      premiumOpen: this.state.premiumOpen,
+      deleteConfirmOpen: this.state.deleteConfirmOpen,
+      closeDeleteConfirm: () => this.setState({ deleteConfirmOpen: false }),
+      confirmDeleteSeries: () => this.setState({ deleteConfirmOpen: false, mode: "oorsig", flip: {}, picked: {} }),
+      showAudienceToggle: role !== "Leerder",
+      setAudienceT: () => this.setState({ audience: "Onderwysers" }),
+      setAudienceL: () => this.setState({ audience: "Leerders" }),
+      audienceTBg: audienceSel === "Onderwysers" ? "var(--wk-blue-600)" : "transparent",
+      audienceTFg: audienceSel === "Onderwysers" ? "#fff" : "var(--wk-grey-600)",
+      audienceLBg: audienceSel === "Leerders" ? "var(--wk-blue-600)" : "transparent",
+      audienceLFg: audienceSel === "Leerders" ? "#fff" : "var(--wk-grey-600)",
+      toggleActions: () => this.setState(s => ({ actionsOpen: !s.actionsOpen })),
+      actionsOpen: this.state.actionsOpen,
+      goSettings: () => {},
+      toggleAddCard: () => this.setState(s => ({ addCardOpen: !s.addCardOpen })),
+      addCardOpen: this.state.addCardOpen,
+      addSingleCard: () => { this.addCardNow(1); this.setState({ addCardOpen: false }); },
+      addBulkCards: () => { this.addCardNow(3); this.setState({ addCardOpen: false }); },
+      heroActions: (owner ? [
+        { label: "Fokus reeks", icon: "ph-bold ph-play", fg: "var(--wk-grey-700)", go: () => this.setState({ mode: "fokus", side: "voor", actionsOpen: false }) },
+        { label: "Wysig reeks", icon: "ph ph-pencil-simple", fg: "var(--wk-grey-700)", go: () => this.setState({ mode: "wysig", panel: "kaarte", actionsOpen: false }) },
+        (this.state.seriesActive !== false)
+          ? { label: "Onaktiveer reeks", icon: "ph ph-eye-slash", fg: "var(--wk-grey-700)", go: () => this.setState({ seriesActive: false, actionsOpen: false }) }
+          : { label: "Aktiveer reeks", icon: "ph ph-eye", fg: "var(--wk-grey-700)", go: () => this.setState({ seriesActive: true, actionsOpen: false }) },
+        { label: "Plaas in kursus", icon: "ph ph-folder-simple-plus", fg: "var(--wk-grey-700)", go: () => this.setState({ actionsOpen: false }) },
+        { label: "Stoor as duplikaat", icon: "ph ph-copy", fg: "var(--wk-grey-700)", go: () => this.setState({ actionsOpen: false }) },
+        { label: "Verwyder kursus", icon: "ph ph-trash", fg: "var(--wk-cinnabar-700)", go: () => this.setState({ actionsOpen: false, deleteConfirmOpen: true }) },
+      ] : [
+        { label: "Fokus reeks", icon: "ph-bold ph-play", fg: "var(--wk-grey-700)", go: () => this.setState({ mode: "fokus", side: "voor", actionsOpen: false }) },
+      ]),
+      isEdit: isEdit, isFocus: isFocus, isList: isList,
+      isOverview: mode === "oorsig", isSeries: mode !== "oorsig",
+      goOverview: () => this.setState({ mode: "oorsig", flip: {}, picked: {} }),
+      showSeriesTag: V.showNuut && !!seriesTag,
+      seriesTag: seriesTag ? seriesTag.t : "",
+      seriesTagBg: seriesTag ? seriesTag.bg : "transparent",
+      seriesTotal: SERIES.length,
+      seriesTitle: cur0.title, seriesGrade: "Graad " + cur0.grade, seriesSubject: cur0.subject,
+      query: this.state.query || "",
+      hasQuery: !!(this.state.query || "").length,
+      onQuery: (e) => this.setState({ query: e.target.value }),
+      clearQuery: () => this.setState({ query: "" }),
+      resetBrowse: () => this.setState({ query: "", browse: "Alle reekse", grade: 0, subject: "Alle vakke", area: null, openSubj: null, dd: null }),
+      pgHeadDir: narrow ? "column" : V.pgHeadDir,
+      pgHeadAlign: narrow ? "stretch" : V.pgHeadAlign,
+      pgTitleMin: narrow ? "0px" : V.pgTitleMin,
+      pgActW: narrow ? "100%" : V.pgActW,
+      searchW: narrow ? "auto" : V.searchW,
+      stageScrollNow: (this.state.sheet === true || this.state.sortSheet === true) ? "hidden" : V.stageScroll,
+      sheetOpen: this.state.sheet === true,
+      openSheet: () => this.setState({ sheet: true, sheetDd: null }),
+      sortSheetOpen: this.state.sortSheet === true,
+      openSortSheet: () => this.setState({ sortSheet: true }),
+      closeSortSheet: () => this.setState({ sortSheet: false }),
+      sortOptions: [
+        { label: "Laas gewysig", hint: "Nuutste reekse eerste", icon: "ph ph-clock-counter-clockwise" },
+        { label: "Naam", hint: "A tot Z", icon: "ph ph-sort-ascending" },
+        { label: "Vordering", hint: "Meeste verstaan eerste", icon: "ph ph-chart-line-up" },
+      ].map(x => {
+        const on = x.label === sortBy;
+        return {
+          label: x.label, hint: x.hint, icon: x.icon, on: on,
+          pick: () => this.setState({ sort: x.label, sortSheet: false }),
+          bg: on ? "var(--wk-blue-25)" : "transparent",
+          fg: on ? "var(--wk-blue-700)" : "var(--wk-grey-700)",
+          font: on ? "600 16px/24px var(--font-body)" : "500 16px/24px var(--font-body)",
+        };
+      }),
+      subjectLabel: subjSel + (areaSel ? " • " + areaSel : ""),
+      subjectOnlyLabel: subjSel,
+      areaLabel: areaSel || "Alle gebiede",
+      sheetStatusOpen: this.state.sheetDd === "status",
+      sheetGradeOpen: this.state.sheetDd === "graad",
+      sheetSubjOpen: this.state.sheetDd === "vak",
+      sheetGebiedOpen: this.state.sheetDd === "gebied",
+      sheetStatusCaret: this.state.sheetDd === "status" ? "ph-bold ph-caret-up" : "ph-bold ph-caret-down",
+      sheetGradeCaret: this.state.sheetDd === "graad" ? "ph-bold ph-caret-up" : "ph-bold ph-caret-down",
+      sheetSubjCaret: this.state.sheetDd === "vak" ? "ph-bold ph-caret-up" : "ph-bold ph-caret-down",
+      sheetGebiedCaret: this.state.sheetDd === "gebied" ? "ph-bold ph-caret-up" : "ph-bold ph-caret-down",
+      openSheetStatus: () => this.setState({ sheetDd: this.state.sheetDd === "status" ? null : "status" }),
+      openSheetGrade: () => this.setState({ sheetDd: this.state.sheetDd === "graad" ? null : "graad" }),
+      openSheetSubj: () => this.setState({ sheetDd: this.state.sheetDd === "vak" ? null : "vak" }),
+      openSheetGebied: () => this.setState({ sheetDd: this.state.sheetDd === "gebied" ? null : "gebied" }),
+      closeSheet: () => this.setState({ sheet: false }),
+      filterCount: [bf !== "Alle reekse", !!gradeSel, subjSel !== "Alle vakke", !!areaSel].filter(Boolean).length,
+      hasFilters: (bf !== "Alle reekse" || !!gradeSel || subjSel !== "Alle vakke" || !!areaSel),
+      filterSummary: [bf === "Alle reekse" ? null : bf, gradeSel ? "Graad " + gradeSel : null, subjSel === "Alle vakke" ? null : subjSel, areaSel].filter(Boolean).join(" · ") || "Alle reekse",
+      sheetCta: "Wys " + shown.length + (shown.length === 1 ? " reeks" : " reekse"),
+      heroDir: narrow ? "column" : V.heroDir,
+      heroAlign: narrow ? "stretch" : V.heroAlign,
+      heroGap: narrow ? "20px" : V.heroGap,
+      heroH1: narrow ? "600 30px/38px var(--font-display)" : V.heroH1,
+      heroStar: narrow ? "22px" : V.heroStar,
+      heroMeta: narrow ? "500 16px/24px var(--font-body)" : V.heroMeta,
+      heroTrackMin: narrow ? "100%" : V.heroTrackMin,
+      heroActW: narrow ? "100%" : V.heroActW,
+      showCreateFull: !V.compactHead && !narrow,
+      showCreateIcon: (V.compactHead || narrow),
+      showRail: !narrow,
+      showMobileFilters: narrow,
+      footLinks: ["Hulp", "Bepalings", "Kontak ons"],
+      isEmpty: shown.length === 0,
+      statusLabel: bf,
+      statusOpen: this.state.dd === "status",
+      statusCaret: this.state.dd === "status" ? "ph-bold ph-caret-up" : "ph-bold ph-caret-down",
+      openStatusDd: () => this.setState({ dd: this.state.dd === "status" ? null : "status" }),
+      statusOptions: STATUS_LIST.map(x => ({
+        label: x.label, on: x.value === bf,
+        pick: () => this.setState({ browse: x.value, dd: null }),
+        bg: x.value === bf ? "var(--wk-blue-25)" : "#fff",
+        fg: x.value === bf ? "var(--wk-blue-700)" : "var(--wk-grey-700)",
+        pickSheet: () => this.setState({ browse: x.value, sheetDd: null }),
+        chipBg: x.value === bf ? "var(--wk-blue-600)" : "var(--wk-grey-100)",
+        chipFg: x.value === bf ? "#fff" : "var(--wk-grey-700)",
+        chipFont: x.value === bf ? "600 15px/22px var(--font-body)" : "500 15px/22px var(--font-body)",
+      })),
+      gradeLabel: gradeSel ? "Graad " + gradeSel : "Alle grade",
+      gradeDot: gradeSel ? gradeTone(gradeSel) : "var(--wk-grey-400)",
+      gradeOpen: this.state.dd === "graad",
+      gradeCaret: this.state.dd === "graad" ? "ph-bold ph-caret-up" : "ph-bold ph-caret-down",
+      openGradeDd: () => this.setState({ dd: this.state.dd === "graad" ? null : "graad" }),
+      gradeOptions: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(g => ({
+        label: g ? "Graad " + g : "Alle grade", short: g ? "Gr " + g : "Almal", on: g === gradeSel,
+        dot: g ? gradeTone(g) : "var(--wk-grey-400)",
+        pick: () => this.setState({ grade: g, dd: null }),
+        bg: g === gradeSel ? "var(--wk-blue-25)" : "#fff",
+        fg: g === gradeSel ? "var(--wk-blue-700)" : "var(--wk-grey-700)",
+        pickSheet: () => this.setState({ grade: g, sheetDd: null }),
+        chipBg: g === gradeSel ? "var(--wk-blue-600)" : "var(--wk-grey-100)",
+        chipFg: g === gradeSel ? "#fff" : "var(--wk-grey-700)",
+        chipFont: g === gradeSel ? "600 15px/22px var(--font-body)" : "500 15px/22px var(--font-body)",
+      })),
+      subjects: [{ label: "Alle vakke", count: base.length }].concat(subjectNames.map(name => ({
+        label: name, count: base.filter(s => s.subject === name).length,
+      }))).map(x => {
+        const on = x.label === subjSel;
+        return {
+          label: x.label, count: x.count,
+          pick: () => this.setState({ subject: x.label, area: null }),
+          bg: on ? "var(--wk-blue-100)" : "transparent",
+          fg: on ? "var(--wk-blue-800)" : "var(--wk-grey-600)",
+          font: on ? "600 15px/22px var(--font-body)" : "500 15px/22px var(--font-body)",
+          countBg: on ? "var(--wk-blue-600)" : "var(--wk-grey-100)",
+          countFg: on ? "#fff" : "var(--wk-grey-500)",
+        };
+      }),
+      showSubjectFilter: audienceSel !== "Onderwysers",
+      showContentAreas: (CONTENT_AREAS[subjSel] || []).length > 0 && audienceSel !== "Onderwysers",
+      contentAreas: [{ label: "Alle gebiede", pick: () => this.setState({ area: null }) }].concat((CONTENT_AREAS[subjSel] || []).map(a => ({
+        label: a, pick: () => this.setState({ area: areaSel === a ? null : a }),
+      }))).map(x => {
+        const on = x.label === "Alle gebiede" ? !areaSel : areaSel === x.label;
+        return Object.assign({}, x, {
+          bg: on ? "var(--wk-blue-100)" : "transparent",
+          fg: on ? "var(--wk-blue-800)" : "var(--wk-grey-600)",
+          font: on ? "600 14px/20px var(--font-body)" : "500 14px/20px var(--font-body)",
+          dot: on ? "var(--wk-blue-600)" : "var(--wk-grey-300)",
+        });
+      }),
+      browseHeading: (subjSel === "Alle vakke" ? "Alle vakke" : subjSel) + (areaSel ? " • " + areaSel : ""),
+      sortLabel: sortBy,
+      cycleSort: () => {
+        const opts = ["Laas gewysig", "Naam", "Vordering"];
+        this.setState({ sort: opts[(opts.indexOf(sortBy) + 1) % opts.length] });
+      },
+      isLearner: role === "Leerder",
+      showInlineCta: !V.stackRows && !narrow,
+      showBlockCta: V.stackRows || narrow,
+      series: shown.map(s => {
+        const deck = decks[s.idx] || DECKS[s.idx] || DECKS[0];
+        const isKonsep = (teacher || owner) && s.status === "Konsep";
+        const isNuut = !isKonsep && (s.ageDays || 999) <= 30;
+        const done = s.pct === 100;
+        const tag = s.verified ? { t: "Wolkskool", bg: "var(--wk-blue-600)" }
+          : isKonsep ? { t: "Konsep", bg: "var(--wk-purple-600)" }
+          : isNuut ? { t: "Nuut", bg: "var(--info-500)" }
+          : done && s.newContent ? { t: "Nuwe Inhoud", bg: "var(--wk-purple-700)" }
+          : done ? { t: "Voltooi", bg: "var(--success-600)" }
+          : null;
+        const cta = s.pct === 0 ? { t: "Begin", icon: "ph-bold ph-play", bg: "var(--wk-blue-600)", fg: "#fff", ring: "none" }
+          : done ? { t: "Hersien", icon: "ph-bold ph-arrows-clockwise", bg: "#fff", fg: "var(--wk-grey-700)", ring: "inset 0 0 0 1px var(--wk-grey-300)" }
+          : { t: "Voltooi", icon: "ph-bold ph-arrow-right", bg: "var(--wk-blue-600)", fg: "#fff", ring: "none" };
+        const mine = s.owner === "Olivia Rhye";
+        return {
+          title: s.title, grade: "Graad " + s.grade, subject: s.subject, count: s.count,
+          updated: s.updated, pct: s.pct + "%",
+          icon: SUBJECT_ICON[s.subject] || "ph ph-cards",
+          tone: gradeTone(s.grade), tone500: gradeToneLight(s.grade),
+          glow: "radial-gradient(closest-side,rgba(255,255,255,.42),transparent)",
+          verified: !!s.verified,
+          contentBg: s.verified ? "var(--wk-grey-950)" : "#fff",
+          titleColor: s.verified ? "#fff" : "var(--wk-grey-950)",
+          metaColor: s.verified ? "rgba(255,255,255,.66)" : "var(--wk-grey-600)",
+          trackBg: s.verified ? "rgba(255,255,255,.14)" : "var(--wk-grey-100)",
+          showTag: !!(tag || (teacher && s.status === "Konsep")),
+          tag: tag ? tag.t : "Konsep",
+          tagBg: tag ? tag.bg : "var(--wk-purple-600)",
+          owner: mine ? "Olivia Rhye" : "Wolkskool",
+          ownerIcon: mine ? "ph ph-user" : "ph ph-cloud",
+          ownerBg: mine ? "var(--wk-grey-100)" : "var(--wk-blue-25)",
+          ownerFg: mine ? "var(--wk-grey-700)" : "var(--wk-blue-700)",
+          reviewN: deck.filter(c => c.status === "hersien").length,
+          knownN: deck.filter(c => c.status === "verstaan").length,
+          cta: cta.t, ctaIcon: cta.icon, ctaBg: cta.bg, ctaFg: cta.fg, ctaRing: cta.ring,
+          favIcon: s.fav ? "ph-fill ph-star" : "ph ph-star",
+          favFg: s.fav ? "var(--wk-saffron-500)" : "var(--wk-grey-400)",
+          favLabel: s.fav ? "Verwyder uit gunstelinge" : "Voeg by gunstelinge",
+          toggleFav: (e) => { e.stopPropagation(); const next = Object.assign({}, favs); next[s.idx] = !s.fav; this.setState({ favs: next }); },
+          menuOpen: this.state.rowMenu === s.idx,
+          toggleMenu: (e) => { e.stopPropagation(); this.setState({ rowMenu: this.state.rowMenu === s.idx ? null : s.idx }); },
+          actions: [
+            { label: "Wysig reeks", icon: "ph ph-pencil-simple", fg: "var(--wk-grey-700)", go: () => this.setState({ mode: "wysig", pick: s.idx, card: 0, flip: {}, picked: {}, rowMenu: null, panel: "kaarte" }) },
+            { label: "Dupliseer reeks", icon: "ph ph-copy", fg: "var(--wk-grey-700)", go: () => this.setState({ rowMenu: null }) },
+            { label: "Plaas in kursus", icon: "ph ph-folder-simple-plus", fg: "var(--wk-grey-700)", go: () => this.setState({ rowMenu: null }) },
+            { label: "Deel skakel", icon: "ph ph-share-network", fg: "var(--wk-grey-700)", go: () => this.setState({ rowMenu: null }) },
+            { label: "Verwyder reeks", icon: "ph ph-trash", fg: "var(--error-600)", go: () => this.setState({ rowMenu: null }) },
+          ],
+          open: () => this.setState({ mode: "lys", pick: s.idx, card: 0, flip: {}, picked: {}, panel: "kaarte", rowMenu: null }),
+        };
+      }),
+      goEdit: () => this.setState({ mode: "wysig", panel: "kaarte" }),
+      goList: () => this.setState({ mode: "lys", picked: {} }),
+      enterFocus: () => this.setState({ mode: "fokus", side: "voor" }),
+      leaveFocus: () => this.setState({ mode: "lys" }),
+      cardCount: list.length,
+      seriesPct: pct,
+      knownN: known, reviewN: review,
+      focusPct: Math.round(((this.state.card + 1) / list.length) * 100) + "%",
+      focusCount: (this.state.card + 1) + "/" + list.length + " kaarte",
+      editCount: (this.state.card + 1) + "/" + list.length + " kaarte",
+      hasPicked: pickedN > 0,
+      showAddCard: pickedN === 0,
+      deleteLabel: "Verwyder " + pickedN + (pickedN === 1 ? " kaart" : " kaarte"),
+      editHeading: pickedN > 0 ? pickedN + " van " + list.length + " gekies" : list.length + " Flitskaarte",
+      clearPicked: () => this.setState({ picked: {} }),
+      deletePicked: () => {
+        const next = list.filter((c, i) => !picked[i]);
+        this.setDeck(next.length ? next : list, { picked: {}, card: 0, flip: {} });
+      },
+      isFav: cur0.fav,
+      favIcon: cur0.fav ? "ph-fill ph-star" : "ph ph-star",
+      favFg: cur0.fav ? "var(--wk-saffron-400)" : "rgba(255,255,255,.70)",
+      favScale: cur0.fav ? "scale(1)" : "scale(.96)",
+      favLabel: cur0.fav ? "Verwyder uit gunstelinge" : "Voeg by gunstelinge",
+      toggleFav: () => { const next = Object.assign({}, favs); next[cur0.idx] = !cur0.fav; this.setState({ favs: next }); },
+      knownN: known, reviewN: review,
+      focusPct: Math.round(((this.state.card + 1) / list.length) * 100) + "%",
+      focusCount: (this.state.card + 1) + "/" + list.length + " kaarte",
+      editCount: (this.state.card + 1) + "/" + list.length + " kaarte",
+
+      cards: list.map((c, i) => {
+        const st = STATUS[c.status] || STATUS.hersien;
+        const on = i === this.state.card;
+        return {
+          tag: st.tag, tagBg: st.bg, tagFg: st.fg,
+          showTag: !isEdit && c.status !== "nuut" && !owner,
+          showPick: isEdit,
+          pickBg: picked[i] ? "var(--wk-blue-600)" : "#fff",
+          pickRing: picked[i] ? "none" : "inset 0 0 0 1px var(--wk-grey-300)",
+          pickOpacity: picked[i] ? "1" : "0",
+          pick: (e) => { e.stopPropagation(); const next = Object.assign({}, picked); next[i] = !next[i]; this.setState({ picked: next }); },
+          showHandle: isEdit, showRemove: isEdit,
+          draggable: isEdit,
+          handleCursor: drag === i ? "grabbing" : "grab",
+          handleFg: drag === i ? "var(--wk-blue-600)" : "var(--wk-grey-400)",
+          rowOpacity: drag === i ? "0.45" : "1",
+          dropLine: over === i && drag !== null && drag !== i ? "0 -3px 0 0 var(--wk-blue-500)" : "none",
+          onDragStart: () => this.setState({ drag: i, over: i }),
+          onDragOver: (e) => { e.preventDefault(); if (this.state.over !== i) this.setState({ over: i }); },
+          onDrop: (e) => { e.preventDefault(); this.moveCard(this.state.drag, i); },
+          onDragEnd: () => this.setState({ drag: null, over: null }),
+          ring: on && isEdit ? "inset 0 0 0 2px var(--wk-blue-500)" : "inset 0 0 0 1px var(--wk-grey-200)",
+          sideLabel: flip[i] ? "Agterkant" : "Voorkant",
+          sideBg: flip[i] ? "var(--wk-purple-100)" : "var(--wk-blue-25)",
+          sideFg: flip[i] ? "var(--wk-purple-700)" : "var(--wk-blue-700)",
+          sideIcon: (flip[i] ? (c.backType || "teks") : (c.frontType || "teks")) === "prent" ? "ph ph-image" : "ph ph-text-aa",
+          isText: (flip[i] ? (c.backType || "teks") : (c.frontType || "teks")) === "teks",
+          isImage: (flip[i] ? (c.backType || "teks") : (c.frontType || "teks")) === "prent",
+          text: flip[i] ? c.back : c.front,
+          isFrontImage: !flip[i] && (c.frontType || "teks") === "prent",
+          isBackImage: !!flip[i] && (c.backType || "teks") === "prent",
+          font: flip[i] ? backFont : frontFont,
+          textFg: flip[i] ? "var(--wk-grey-700)" : "var(--wk-grey-950)",
+          flipHint: flip[i] ? "Klik om terug te draai" : "Klik om te draai",
+          go: () => {
+            const next = Object.assign({}, this.state.flip);
+            next[i] = !next[i];
+            this.setState({ card: i, flip: next });
+          },
+          remove: () => {
+            const next = list.slice();
+            next.splice(i, 1);
+            this.setDeck(next.length ? next : list, { card: 0, flip: {} });
+          },
+        };
+      }),
+
+      metrics: [
+        { label: "FLITSKAARTE", value: String(list.length), icon: "ph ph-cards", bg: "var(--wk-purple-100)", fg: "var(--wk-purple-600)" },
+        { label: owner ? "TOTAAL VOLTOOI" : "VERSTAAN", value: String(known), icon: "ph ph-check-circle", bg: "var(--wk-emerald-100)", fg: "var(--success-600)" },
+        { label: owner ? "LAAS GEWYSIG" : "LAASTE BESOEK", value: "3 Jun 2024", icon: "ph ph-clock-counter-clockwise", bg: "var(--wk-info-100)", fg: "var(--info-600)" },
+      ],
+      seriesTags: ["Lees en Kyk", "Sinsvlakwerk", "Skryf en aanbied"],
+      meta: [
+        { label: "Graad", value: cur0.grade },
+        { label: "Vak", value: cur0.subject },
+        { label: "Geskep deur", value: "Olivia Rhye · 3 Junie 2024" },
+        { label: "Laas gewysig deur", value: "Olivia Rhye · 18 Julie 2025" },
+      ],
+
+      cardPadNow: isEdit ? "24px 14px" : V.cardPad,
+      infoPadNow: isEdit ? V.editPad : V.infoPad,
+      cardFontNow: isEdit ? "600 17px/24px var(--font-display)" : V.cardFont,
+      cardBackFont: isEdit ? "400 13px/19px var(--font-body)" : "400 14px/20px var(--font-body)",
+      listWNow: isEdit && !V.isMobileVp ? V.listWEdit : V.listW,
+      showList: showingCards,
+      showInfo: !V.showPanelSwitch || this.state.panel === "info",
+      infoTabLabel: isEdit ? "Wysig" : "Oor die reeks",
+      showCardsPanel: () => this.setState({ panel: "kaarte" }),
+      showInfoPanel: () => this.setState({ panel: "info" }),
+      tabCardsFg: showingCards ? gradeTone700(cur0.grade) : "var(--wk-grey-500)",
+      tabCardsRing: showingCards ? "inset 0 -2px 0 0 " + gradeTone(cur0.grade) : "none",
+      tabInfoFg: showingCards ? "var(--wk-grey-500)" : gradeTone700(cur0.grade),
+      tabInfoRing: showingCards ? "none" : "inset 0 -2px 0 0 " + gradeTone(cur0.grade),
+      showStickyCta: V.showStickyCta && isList,
+
+      cardFont: V.focusCardFont,
+      backFont: V.backBodyFont,
+      flipTransform: sideVoor ? "rotateY(0deg)" : "rotateY(180deg)",
+      cardAspect: V.cardAspect,
+      frontText: cur.front,
+      backText: cur.back,
+      focusFrontIsText: curFrontType === "teks",
+      focusFrontIsImage: curFrontType === "prent",
+      focusBackIsText: curBackType === "teks",
+      focusBackIsImage: curBackType === "prent",
+      recapColor: gradeTone300(cur0.grade),
+      recapFont: "600 22px/30px var(--font-body)",
+      showFrontImgDesc: !!cur.frontImgDesc,
+      frontImgDescText: cur.frontImgDesc,
+      showBackImgDesc: !!cur.backImgDesc,
+      backImgDescText: cur.backImgDesc,
+      showBackList: !!(cur.backList && cur.backList.length),
+      backListItems: (cur.backList || []).map(t => ({ text: t })),
+      backBg: gradeTone700(cur0.grade),
+      headerGradA: gradeTone(cur0.grade),
+      headerGradB: gradeTone700(cur0.grade),
+      headerGradC: gradeToneDeep(cur0.grade),
+      blobColorA: gradeToneLight(cur0.grade),
+      blobColorB: gradeToneDeep(cur0.grade),
+      focusIsText: (sideVoor ? (cur.frontType || "teks") : (cur.backType || "teks")) === "teks",
+      focusFrontImage: sideVoor && (cur.frontType || "teks") === "prent",
+      focusBackImage: !sideVoor && (cur.backType || "teks") === "prent",
+      sideLabel: sideVoor ? "Voorkant" : "Agterkant",
+      sideBg: sideVoor ? "var(--wk-blue-25)" : "var(--wk-purple-100)",
+      sideFg: sideVoor ? "var(--wk-blue-700)" : "var(--wk-purple-700)",
+      flipHint: sideVoor ? "Klik om die antwoord te sien" : "Klik om terug te draai",
+      flipCard: () => this.setState({ side: sideVoor ? "agter" : "voor" }),
+      prevCard: () => this.setCard(this.state.card - 1),
+      nextCard: () => this.setCard(this.state.card + 1),
+      nextLabel: this.state.card === list.length - 1 ? "Klaar" : "Volgende",
+      nextIcon: this.state.card === list.length - 1 ? "ph-bold ph-check" : "ph-bold ph-arrow-right",
+      finishOrNext: () => this.state.card === list.length - 1 ? this.setState({ mode: "lys" }) : this.setCard(this.state.card + 1),
+      showNavButtons: vp !== "mobile",
+      onCardTouchStart: (e) => { this._touchX = e.touches[0].clientX; },
+      onCardTouchEnd: (e) => {
+        if (this._touchX == null) return;
+        const dx = e.changedTouches[0].clientX - this._touchX;
+        this._touchX = null;
+        if (Math.abs(dx) < 40) return;
+        this.setCard(this.state.card + (dx < 0 ? 1 : -1));
+      },
+      onCardPointerDown: (e) => { this._dragX = e.clientX; },
+      onCardPointerUp: (e) => {
+        if (this._dragX == null) return;
+        const dx = e.clientX - this._dragX;
+        this._dragX = null;
+        if (Math.abs(dx) < 40) return;
+        this.setCard(this.state.card + (dx < 0 ? 1 : -1));
+      },
+      markReview: () => this.mark("hersien"),
+      markKnown: () => this.mark("verstaan"),
+      reviewBg: cur.status === "hersien" ? "var(--wk-orange-600)" : "#fff",
+      reviewFg: cur.status === "hersien" ? "#fff" : "var(--wk-grey-700)",
+      reviewStroke: cur.status === "hersien" ? "none" : "inset 0 0 0 1px var(--wk-grey-300)",
+      reviewIcon: cur.status === "hersien" ? "ph-bold ph-arrow-counter-clockwise" : "ph ph-arrow-counter-clockwise",
+      knownBg: cur.status === "verstaan" ? "var(--wk-emerald-600)" : "#fff",
+      knownFg: cur.status === "verstaan" ? "#fff" : "var(--wk-grey-700)",
+      knownStroke: cur.status === "verstaan" ? "none" : "inset 0 0 0 1px var(--wk-grey-300)",
+      knownIcon: cur.status === "verstaan" ? "ph-bold ph-check-circle" : "ph ph-check-circle",
+
+      frontText: cur.front, backText: cur.back,
+      frontCount: cur.front.length + "/30",
+      backCount: cur.back.length + "/100",
+      frontTextareaH: this.hugH(cur.front),
+      backTextareaH: this.hugH(cur.back),
+      onFront: (e) => {
+        const next = this.deck().slice();
+        next[this.state.card] = Object.assign({}, next[this.state.card], { front: e.target.value });
+        this.setDeck(next);
+      },
+      onBack: (e) => {
+        const next = this.deck().slice();
+        next[this.state.card] = Object.assign({}, next[this.state.card], { back: e.target.value });
+        this.setDeck(next);
+      },
+      frontImgDescVal: cur.frontImgDesc || "",
+      backImgDescVal: cur.backImgDesc || "",
+      onFrontImgDesc: (e) => {
+        const next = this.deck().slice();
+        next[this.state.card] = Object.assign({}, next[this.state.card], { frontImgDesc: e.target.value });
+        this.setDeck(next);
+      },
+      onBackImgDesc: (e) => {
+        const next = this.deck().slice();
+        next[this.state.card] = Object.assign({}, next[this.state.card], { backImgDesc: e.target.value });
+        this.setDeck(next);
+      },
+      addCard: () => this.addCardNow(1),
+      frontTeks: () => this.setSide("frontType", "teks"),
+      frontPrent: () => this.setSide("frontType", "prent"),
+      backTeks: () => this.setSide("backType", "teks"),
+      backPrent: () => this.setSide("backType", "prent"),
+      frontIsTeks: curFrontType === "teks", frontIsPrent: curFrontType === "prent",
+      backIsTeks: curBackType === "teks", backIsPrent: curBackType === "prent",
+      frontTeksBg: fT.bg, frontTeksFg: fT.fg, frontTeksRing: fT.ring,
+      frontPrentBg: fP.bg, frontPrentFg: fP.fg, frontPrentRing: fP.ring,
+      backTeksBg: bT.bg, backTeksFg: bT.fg, backTeksRing: bT.ring,
+      backPrentBg: bP.bg, backPrentFg: bP.fg, backPrentRing: bP.ring,
+
+      stageH: stageHFinal || V.stageH,
+      stripCollapsed, stripExpanded: !stripCollapsed,
+      stripPad: stripCollapsed ? "0px" : "40px",
+      toggleStrip: this.toggleStrip,
+      screenOptions, screenValue: curScreenLabel, onScreenChange: (e) => this.pickScreen(e.target.value)(),
+      roleItems, vpItems,
+    });
+  }
+}
+</script>
+</body>
+</html>
